@@ -256,3 +256,9 @@
 // } else {
 //     console.log('Все не так!')
 // }
+
+const a = 'true'
+const b = false
+const c = 17
+const d = undefined
+const e = null
