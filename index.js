@@ -258,3 +258,120 @@
 // } else {
 //     console.log('Все не так!')
 // }
+
+
+
+// zadanie_1
+
+const perOne = true;
+console.log(typeof perOne);
+
+const perTwo = false;
+console.log(typeof perTwo);
+
+const perThree = 17;
+console.log(typeof perThree);
+
+const perFour = undefined;
+console.log(typeof perFour);
+
+const perFive = null;
+console.log(typeof perFive);
+
+// zadanie_2
+
+const perHeight = 15;
+const perWidth = 20;
+if (perWidth > perHeight) {
+    console.log (perWidth)
+    } else {
+     console.log (perHeight)
+};
+
+// zadanie_3
+
+for (let i = 1; i <= 20; ++i) {
+  if (i % 3 === 0) {
+    console.log(i)
+  }
+}
+
+// zadanie_4
+
+let key = true;
+let documents = true;
+let pen = true;
+let apple = true;
+let orange = false;
+
+if (key && documents && pen) {
+    console.log ('Всё взяли')
+}
+else 
+console.log ('Что то забыли');
+
+if (apple || orange) {
+    console.log ('Всё взяли')
+}
+else ('Что то забыли');
+
+
+// zadanie_5
+
+const  number =  prompt('Введите число'); // Ввести любое число и проверить по условию 
+
+if (number % 3 === 0 && number % 5 === 0)
+{
+    alert ('FizBuz')
+}
+else if (number % 5 === 0)  {
+    alert ('Fiz')
+}
+else if (number % 3 === 0)
+{
+    alert ('Buz')
+}
+
+// zadanie_6
+
+let vozrast = prompt('Сколько вам лет?') // Ввести ваш возраст 
+
+if (vozrast > 18)
+{
+    alert ('Попей пивка')
+}
+else if (vozrast >=16 && vozrast <=18) 
+{
+    alert ('Можешь выкурить сиграетку, только маме не говори')
+}
+else 
+{
+    alert ('Пей колу')  
+}
+
+// zadanie_7
+
+
+const yg = "юг"
+const sever = "север"
+const zapad = "запад"
+const vostok = "восток"
+
+let storonaSveta = prompt('В какую сторону света ты бы хотел отправиться?') // Ввести сторону света
+
+if (yg === storonaSveta)
+{
+    alert ('на юг пойдешь счастье найдешь')
+}
+else if  (sever === storonaSveta) 
+{
+    alert ('на север пойдешь много денег найдешь')
+}
+else if  (zapad === storonaSveta) 
+{
+    alert ('на запад пойдешь верного друга найдешь')
+}
+else if   (vostok === storonaSveta) 
+{
+    alert ('на восток пойдешь разработчиком станешь')
+}
