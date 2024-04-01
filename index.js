@@ -16,9 +16,11 @@ let height = 15
 let width = 20
 if (height > width) {
   console.log("Наибольшее число: " + height)
-} else {
+} else if (height < width) {
   console.log("Наибольшее число: " + width)
-};
+} else {
+  console.log("Числа равны");
+}
 
 //3
 for (let i = 1; i <= 20; i++) {
