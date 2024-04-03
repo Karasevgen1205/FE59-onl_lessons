@@ -1,4 +1,4 @@
-"use strict";
+'use strict'
 
 // Сложение, вычитание, деление, умножение
 // console.log(10 + 1); // 11
@@ -34,7 +34,7 @@
 // console.log('10' - true); // 9
 // console.log('10' / true); // 10
 // console.log(10 / true); // 10
-// console.log('10' / true); // 10 
+// console.log('10' / true); // 10
 // console.log(10 * true); // 10
 // console.log('10' * true); // 10
 
@@ -50,7 +50,7 @@
 // console.log(10 + null); // 10
 // console.log('10' + null); // 10null
 // console.log(10 - null); // 10
-// console.log('10' - null); // 10 
+// console.log('10' - null); // 10
 // console.log('10' / null); // Infinity
 // console.log(10 / null); // Infinity
 // console.log(10 * null); // 0
@@ -170,7 +170,6 @@
 // showMessage(user_2, '24$');
 // showMessage(user_3, '242руб');
 // showMessage(user_4);
-
 
 // function showCount(count) {
 //     // console.log(count || "неизвестно");
@@ -408,7 +407,4 @@
 
 // test(a, b)
 
-
-
-
-
+asdas
