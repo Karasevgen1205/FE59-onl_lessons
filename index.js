@@ -410,5 +410,78 @@
 
 
 
+// zadanie_1 
+
+function getSum(n) {
+    let sum = 0;
+    for (let i = 1; i <= n; ++i) {
+      sum += i;
+    }
+    return sum;
+  }
+
+  console.log(getSum(100));
+
+// zadanie_2
+
+function totalCredit(sumCredit) {
+    const year = 5;
+    const proc = 17;
+    return ((sumCredit * proc) / 100) * year;
+  }
 
 
+  console.log (totalCredit(5000));
+
+// zadanie_3
+
+function trimString(string, from, to) {
+  return string.slice(from, to)
+};
+console.log(trimString('magazin nahoditsy v Svetlogorske', 10, 25));
+
+// zadanie_4
+
+function getSumNumbers(yourNum) {
+  let result = 0;
+  let yourNumFromString = yourNum.toString();
+  for (let i = 0; i < yourNumFromString.length; i++) {
+    result += Number(yourNumFromString[i]); 
+  }
+  return result;
+  };
+ console.log (getSumNumbers(2021));
+
+// zadanie_5
+
+
+function getSum(firstNum, secondNum) {
+  let result = 0;
+  const start = Math.min(firstNum, secondNum);
+  const end = Math.max(firstNum, secondNum);
+  for (let i = start; i < end +1 ; ++i) {
+    result += i
+  }
+  return result;
+ }
+ console.log(getSum(1, -4));
+
+  // zadanie_6
+
+ function foo() {
+  console.log('Foo');
+ };
+ function boo() {
+  console.log('Boo');
+ }
+
+ function fooBoo(boolValue, foo, boo) {
+  if (boolValue === true) {
+  console.log(true, foo); 
+  } 
+    else {
+  console.log(false, boo);
+  }
+  };
+  fooBoo(true, foo, boo);
+  fooBoo(false, foo, boo);
