@@ -83,25 +83,25 @@ console.log(averageSalary);
 // Затем данные записать в объект. Потом попросить пользователя подтвердить данные. Если верно введен логин
 // и пароль, вывести сообщение Добро пожаловать.
 
-// const userLogin = prompt('Input login');
-// const userPassword = prompt('Input password');
-// const user = {
-//     login: userLogin,
-//     password: userPassword
-// }
+const userLogin = prompt('Input login');
+const userPassword = prompt('Input password');
+const user = {
+    login: userLogin,
+    password: userPassword
+}
 
-// const userLoginConfirm = prompt('Repeat login');
-// const userPasswordConfirm = prompt('Repeat password');
-// const userConfirm = {
-//     login: userLoginConfirm,
-//     password: userPasswordConfirm
-// }
+const userLoginConfirm = prompt('Repeat login');
+const userPasswordConfirm = prompt('Repeat password');
+const userConfirm = {
+    login: userLoginConfirm,
+    password: userPasswordConfirm
+}
 
-// if (user.login === userConfirm.login && user.password === userConfirm.password) {
-//     console.log('Добро пожаловать!')
-// } else {
-//     console.log('Попробуйте еще раз');
-// }
+if (user.login === userConfirm.login && user.password === userConfirm.password) {
+    console.log('Добро пожаловать!')
+} else {
+    console.log('Попробуйте еще раз');
+}
 
 // Advanced level
 
