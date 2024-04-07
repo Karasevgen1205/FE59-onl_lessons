@@ -572,12 +572,12 @@
 
 //   john.sayHi(); // Меня зовут: John
 
-//   /*
+  
 //   john = {
 //      name: "John",
 //      sayHi: function() { ... }
 //   }
-//   */
+  
 
 // ОПЦИОНАЛЬНЯ ЦЕПОЧКА
 // let user = {}; // пользователь без свойства "address"
@@ -590,3 +590,74 @@
 // console.log(user.address ? user.address.street : undefined);
 // console.log(user.address?.street?.knrnergjnrek?.fkweiofwkf?.fewplfowkefop); // undefined (без ошибки)
 
+
+
+// zadanie_1
+
+const user = {
+  name: 'Bob',
+  age: 30,
+}
+delete user.age;
+delete user.name
+console.log(user);
+
+// zadanie_2
+
+const object = {
+  city: 'Minsk',
+  password: 1234,
+};
+
+if(Object.keys(object).includes('password')){
+  console.log('true')
+  } else {
+  console.log('false')
+  }
+
+// zadanie_3 
+
+const student = {
+ name: 'John',
+ age: 19,
+ isHappy: true,
+ };
+ for (const i in student) {
+
+ console.log([i]);
+ console.log(student[i]);
+};
+
+// zadanie_4
+
+const colors = {
+ 'ru pum pu ru rum': {
+ red: 'красный',
+ green: 'зеленый',
+  blue: 'синий'
+ },
+  };
+console.log(colors['ru pum pu ru rum'].red, colors['ru pum pu ru rum'].green)
+
+// zadanie_5
+
+let salaries = {
+  andrey: 500,
+  sveta: 413,
+  anton: 987,
+  igor: 664,
+  alexandra: 199
+  }
+  const Sum = (salaries.andrey + salaries.sveta + salaries.anton + salaries.igor + salaries.alexandra) / 5;
+  console.log(Sum)
+
+// zadanie_6
+
+let userInfo = {
+  users: [],
+  passwords: [],
+};
+
+userInfo["users"] = prompt('Введите ваше имя');
+userInfo["passwords"] = prompt('Введите ваш пароль');
+console.log(userInfo);
