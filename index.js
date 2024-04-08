@@ -1,220 +1,138 @@
-"use strict";
 
-// Array / list / массив / список
+//1
 
-// const list = new Array(); // конструктор
-// const list = []; // литеральны или просто // 99%
-// const list = [1, 2, 'jwkenew', [1, 2, ], false, {name: 'Bob'}]; // литеральны или просто // 99%
+const colors = ['red', 'green', 'blue']
 
-// const obj = {
-//     zIndex: 6,
-//     name: 'Bob',
-//     age: 30,
-// }
+console.log(colors.length)
 
-// obj.fewfwefwefe // undefined
+//2
 
-// obj.zIndex = 88;
+const animals = ['monkey', 'dog', 'bear', 'owl', 'cat']
+const lastanimal = animals[animals.length -1]
+console.log(lastanimal)
 
-// const list = ['zIndex', 'name', 'age'];
-// const listIsObject = {
-//     0: 'zIndex',
-//     1: 'name',
-//     3: 'age',
-// }
+//3
 
-// console.log(list[0]);
-// console.log(listIsObject[0]);
-// console.log(obj['zIndex']); // obj.zIndex
+const numbers = [5, 43, 63, 23, 90];
+numbers.splice(0, numbers.length);
+console.log(numbers);
 
-// console.log(obj, list);
+numbers.length = 0;
+console.log(numbers);
 
-// const list = [1, 2, 'jwkenew', [1, 2, ], false]; // литеральны или просто // 99%
+//4
 
-// const list = ['zIndex', 'width', 'height'];
-// // list.length - 1;
-// // console.log(list[1]);
-// // console.log(list[44]); // undefined
-// // console.log(list[list.length - 1]); // получить последний элемент массива
-// // console.log(list.at(-1)); // получить последний элемент массива
+const students = ['Polina', 'Dasha', 'Masha'];
 
-// // push(...items)добавляет items в конец массива. // используем как правило его
-// // pop() удаляет элемент в конце массива и возвращает его. // используем как правило его
-// // shift() удаляет элемент в начале массива и возвращает его.
-// // unshift(...items) добавляет items в начало массива.
+students.pop();
+students.push('Borya');
 
-// console.log(list);
-// list.push('color'); // добавить в конец массива
-// console.log(list);
-// list.push('font-size', 'font-family');
-// console.log(list);
+students.shift();
+students.unshift('Andrey');
 
-// list.unshift('background');  // добавить в начало массива
-// console.log(list);
+console.log(students);
 
-// list.pop(); // удалить последнее занчение из массива
-// const deletedArrayItem = list.pop(); // удалить последнее занчение из массива и сохранить его в переменно deletedArrayItem
-// console.log(list);
-// console.log(list);
+//5
 
-// list.shift();  // удалить первое занчение из массива
-// const newDeletedArrayItem = list.shift(); // удалить последнее занчение из массива и сохранить его в переменно deletedArrayItem
-// console.log(list);
+const cats = ['Gachito', 'Tom', 'Batman'];
 
-// const list = ['zIndex', 'width', 'height']; // 6000 
+console.log('Через цикл for:');
+for (let i = 0; i < cats.length; i++) {
+    console.log(cats[i]);
+}
 
-// list.push('font-size'); // все ок
-// list.unshift('font-size'); // ['font-size', 'zIndex', 'width', 'height'];
+console.log('Через цикл for..of:');
+for (const cat of cats) {
+    console.log(cat);
+}
 
-// const userList = [
-//     {
-//         firstName: 'Anna',
-//         secondName: 'Milligan',
-//         age: 20,
-//     },
-//     {
-//         firstName: 'Igor',
-//         secondName: 'Mask',
-//         age: 43,
-//     },
-//     {
-//         firstName: 'Billi',
-//         secondName: 'Tramp',
-//         age: 16,
-//     },
-// ];
+// 6
 
-// const emailsList = [];
+const evenNumbers = [2, 4, 6, 8, 10];
+const oddNumbers = [1, 3, 5, 7, 9];
 
-// // for (let i = 0; i < userList.length; ++i) {
-// //     console.log(userList[i]);
-// //     console.log(userList[i].toLowerCase() + '@gmail.com');
-// // }
+const allNumbers = oddNumbers.concat(evenNumbers);
+const index = allNumbers.indexOf(8);
 
-// for (let i = 0; i < userList.length; ++i) { // есть index элемента
-//     const user = userList[i];
-//     const email = `${user.firstName.toLowerCase()}${user.secondName.toLowerCase()}${user.age}@gmail.com`;
-//     emailsList.push(email);
-// }
+console.log(allNumbers);
+console.log('Индекс числа 8: ' + index);
 
-// // console.log(emailsList);
+// 7 
 
-// // console.log(userList);
+const binary = [0, 0, 0, 0];
+const binaryString = binary.map(num => num.toString()).join('1');
+console.log(binaryString);
 
-// // for(key in obj) {} //  цикл in только для ОБЪЕКТОВ!!!!!!!!!!
-// for(const key of emailsList) {
-//     console.log(key);
-// } //  цикл in только для МАССИВОВ!!!!!!!!!!
+// LVL UP 1
 
-// const array = [[1, 2, 3], [5, 7, 15], [22, 12, 14]];
-// console.log(array[0][1])
+function isPalindrome(word) {
+    const reversedWord = word.split('').reverse().join('');
+    return word === reversedWord;
+}
 
-// const cloneArray = array;
+const word = 'шабаш';
+if (isPalindrome(word)) {
+    console.log(`${word} является палиндромом`);
+} else {
+    console.log(`${word} не является палиндромом`);
+}
 
-// const array = ['Jon', 'Bil', 'Smit'];
-// console.log(array);
+// LVL UP 2
 
-// // array.splice(1, 2); // удалить из массива значение (первый аргумент - с какого индекса (1), второй аргумент - сколько значений (2))
-// // console.log(array); //['Jon'];
+const matrix = [
+[12, 98, 78, 65, 23],
+[54, 76, 98, 43, 65],
+[13, 324, 65, 312],
+[9092, 22, 45, 90000],
+]
 
-// // array.splice(1, 2, 'Ivan', 'Evgen'); // удалить два элемента и вставить на их место еще два строковых значения
-// // console.log(array);
+let sum = 0;
+let count = 0;
 
-// const newArray = array.splice(0, 2);
+for (const array of matrix) {
+  for (const number of array) {
+    sum += number;
+    count++;
+  }
+}
 
-// console.log(array);
-// console.log(newArray);
+const average = sum / count;
 
-// const array = ['Jon', 'Bil', 'Smit'];
+console.log(average);
 
-// console.log(array.slice(1, 2)) // скопировал от и до как и для строк
-// console.log(array.slice(-2)) // скопировал два с конца
-// console.log(array.slice(0, 3)) // скопировал 0 (включая) и до 3 (не включая)
+// LVL UP 3
 
-// const num_1 = [1, 2];
-// const num_2 = [3, 4];
-// const num_3 = [5, 6];
+const mixedNumbers = [-14, 24, -89, 43, 0 , -1, 412, 4];
 
-// console.log(num_1.concat(num_2, num_3)); // собирает все массивы в один
+let positiveNumbers = [];
+let negativeNumbers = [];
 
-// const str = 'Женя-очень-любит-печенье';
-// // const splitStr = str.split(''); // создаст массив, который будет содержать каждую символ нашей строки
-// const splitStr = str.split('-'); // создаст массив, который будет содержать фрагменты строк между "-"
-// const result = splitStr.join(' ');
-// console.log(splitStr);
-// console.log(str.split('-').join(' '));
+for (let i = 0; i < mixedNumbers.length; i++) {
+  if (mixedNumbers[i] >= 0) {
+    positiveNumbers.push(mixedNumbers[i]);
+  } else {
+    negativeNumbers.push(mixedNumbers[i]);
+  }
+}
 
-// const userList = ['Ivan', 'Bob', 'Jon'];
-// const cloneUserList = [...userList]; // поверхностное копирование
+console.log("Положительные числа: ", positiveNumbers);
+console.log("Отрицательные числа: ", negativeNumbers);
 
-// const emailsList = [];
+// LVL UP 4
 
-// for (let i = 0; i < userList.length; ++i) {
-//     console.log(userList[i]);
-// }
+const Array_1 = [];
+for (let i = 0; i < 5; i++) {
+    Array_1.push(Math.random() * 10);
+}
 
-// for(const key of userList) {
-//     console.log(key);
-// }
+const cubedArray = [];
+for (let number of Array_1) {
+    cubedArray.push(Math.pow(number, 3));
+}
 
-// userList.forEach((item, i) => {
-//     console.log(i);
-//     // ... какие-то действия
-//     // const user = userList[i];
-//     // const email = `${user.firstName.toLowerCase()}${user.secondName.toLowerCase()}${user.age}@gmail.com`;
-//     // emailsList.push(email);
-// });
 
-// const forEach = (item, i, array) => {
-//     console.log(item, i, array);
-// }
+console.log("Исходный массив случайных чисел:");
+console.log(Array_1);
 
-// for (let i = 0; i < userList.length; ++i) {
-//     // forEach(userList[i], i, userList)
-// }
-
-// function getSum(argument_1, argument_2) {
-//     return argument_1 + argument_2;
-// }
-
-// const num_1 = 1;
-// const num_2 = 5;
-
-// getSum(1, 5);
-// getSum(num_1, num_2);
-
-// const userList = ['Evgen', 'Bob', 'Jon'];
-
-// const newArry = userList.map((user) => { // возвращает новый массив
-//     return `${user.toLowerCase()}@gmail.com`;
-// });
-// console.log(userList, newArry);
-
-const numbers = [0, -1, 458, -64328254];
-
-const isEveryItemMoreThenZero = numbers.every((item, index, array) => {
-    // if (item > 0) {
-    //     return true;
-    // } else {
-    //     return false;
-    // }
-
-    // return item > 0 ? true : false;
-
-    return item > 0;
-});
-
-console.log(isEveryItemMoreThenZero);
-
-const isSomeItemMoreThenZero = numbers.some((item) => {
-    return item > 0;
-});
-
-console.log(isSomeItemMoreThenZero);
-
-// userList.find();
-// userList.filter();
-// userList.reduce();
-// userList.includes('');
-// userList.sort();
-// userList.reverse();
+console.log("Массив чисел, возведенных в куб:");
+console.log(cubedArray);
