@@ -61,7 +61,7 @@
 // }
 // registrationValidator();
 
-7;
+7
 // альтернативное решение через массивы
 
 // function describeScore(score) {
