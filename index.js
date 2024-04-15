@@ -1,389 +1,221 @@
 "use strict";
 
-// Глубокое/поверхностное копирование
+//1
 
-// let num = 55;
-// let newNum = num;
 
-// // console.log(num);
-// // console.log(newNum);
+const fibonacci = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987];
 
-// num = 2;
-
-
-// console.log(num);
-// console.log(newNum);
-
-// let shelf = {
-//     book: "Polina",
-//     age: 345,
-//     isMarr: false,
-//     addr: {
-//         city: 'Minsk',
-//         street: 'Mog',
-//     }
-// };
-
-// const newShelf = shelf; // это просто ссылка на объект shelf
-// newShelf.hook = 15;
-// const newShelf = Object.assign({}, shelf);
-
-// console.log(shelf)
-// console.log(newShelf)
-
-// console.log('!!!!!!!!!!!!!!!!!!!!!!');
-
-// shelf.book = 'Anna';
-// shelf.age = 97;
-// shelf.addr.city = 'NY';
-
-// console.log(shelf)
-// console.log(newShelf)
-
-
-// if (JSON.stringify(student1) === JSON.stringify(student2)) {
-//     console.log("Объекты равны");
-// } else {
-//     console.log("Объекты не равны");
-// }
-  
-// let student2 = {
-//     name: "Polina",
-//     age: 27,
-// };
-  
-// console.log(this);
-
-// alert('432');
-// const res = prompt('3234'); // то что напишет пользователь или null если скипнет
-// const conf = confirm('dedwe'); // true или false
-
-// length
-// unshift
-// shift
-// pop
-// push
-// splice
-// slice
-// join
-// indexOf
-// includes
-// fill заполнить массив
-
-// forEach
-// map
-// every
-// some
-// find // возвращает превое попавшееся значения соответсвтвующее условию или если не находит то undefined
-// filter
-// reduce
-
-// // array.splice(1, 2); // удалить из массива значение (первый аргумент - с какого индекса (1), второй аргумент - сколько значений (2))
-// console.log(array.slice(0, 3)) // скопировал 0 (включая) и до 3 (не включая)
-// userList.join(' ');
-
-// const names = ['Anna', 'Bob', 'Ivan', 'Vlad'];
-// const currentIndex = names.indexOf('Ivan');
-// console.log(currentIndex); // 2
-
-// // const currentNewIndex = names.indexOf('fewgrwgeriughewniugery');
-// // console.log(currentNewIndex); // -1 - ничего не нашли 
-
-// // const currentName = names[currentIndex];
-// const currentName = names.includes('Ivan'); // содержиться ли в массиве или нет
-
-// создание динамическоо массива случайны чисел !!!!! могут спросить на собесе
-// const array = Array(5).fill(null).map((item, index, array) => +(Math.random() * 100).toFixed());
-// console.log(array, array.length);
-
-// виды объявления функций
-// function fn () {
-
-// }
-// ===
-// // const fn = function() {
-
-// // }
-// ===
-// // // >= // сравнение
-// // const arrFn = () => { // у стрелочной функции нет своего контекста вызова this!!!!!!!!!!!!!!!!!
-
-// // }
-
-// function getSum(a, b) {
-//     return a + b;
-// }
-// ===
-// const getSum = (a, b) => a + b;
-
-// function name(bool, foo, bar) {
-//     if (bool) {
-//         return foo();
-//     } else {
-//         return bar();
-//     }
-// }
-
-// function arg1Fn() { // функциями обратного вызова
-//     console.log('Вызвали функцию "arg1Fn"');
-// }
-
-// function arg2Fn() { // функциями обратного вызова
-//     console.log('Вызвали функцию "arg2Fn"');
-// }
-
-// name(true, arg1Fn, arg2Fn) // в данном случае arg1Fn и arg2Fn будут называться функциями обратного вызова (callback functions)
-
-// const names = ['Anna', 'Bob', 'Ivan', 'Vlad'];
-// const numbers = [1, 4, 66, 88, 34, 61];
-// const paddings = ['1px', '4px', '66px', '88px', '34px', '61px'];
-
-// const getEmails = (item, index, array) => {
-//     console.log(item, index, array); // string
-// }
-
-// // for(let i = 0; i < names.length; ++i)  {
-// //     getEmails(names[i]);
-// // }
-
-// // for(let i = 0; i < numbers.length; ++i)  {
-// //     getEmails(numbers[i]);
-// // }
-
-// // for(let i = 0; i < paddings.length; ++i)  {
-// //     getEmails(paddings[i]);
-// // }
-
-// const customLoop = (array, fn) => {
-//     for(let i = 0; i < array.length; ++i)  {
-//         fn(array[i], i, array);
-//     }
-// }
-
-// customLoop(names, getEmails);
-// customLoop(numbers, getEmails);
-// customLoop(paddings, getEmails);
-
-// const names = ['Anna', 'Bob', 'Ivan', 'Vlad'];
-// const numbers = [1, 4, 66, 88, 34, 61];
-// const paddings = ['1px', '4px', '66px', '88px', '34px', '61px'];
-
-// const getEmails = (item, index, array) => {
-//     console.log(item, index, array); // string
-// }
-
-// names.forEach((item, index, array) => {
-//     // ...что-то делает
-// })
-// // numbers.forEach(getEmails)
-// // paddings.forEach(getEmails)
-
-// const numbers = [1, 4, 66, 88, 34, 61];
-
-// let sum = 0;
-
-// numbers.forEach((item) => {
-//     sum += item;
-// })
-
-// console.log(sum);
-
-// const numbers = [1, 4, 8, 9, 11, 14];
-// // const result = [];
-// // numbers.forEach((item) => {
-// //     result.push(item ** 2);
-// // })
-// // console.log(numbers, result);
-
-// const result = numbers.map((item) => {
-//     return item ** 2;
-// })
-
-// console.log(numbers, result);
-
-// const array = Array(100).fill(null).map((item, index, array) => {
-//     return ++index;
-// }) // [0, 1, 2 ..... до 100]
-// console.log(array);
-
-// const numbers = [1, 4, 8, 9, 11, 14];
-
-// const isEveryItemMoreThenten = numbers.every((item, index, array) => {
-//     return item > 10;
-// }); // isEveryItemMoreThenten === false
-
-// console.log(isEveryItemMoreThenten)
-
-// const isSomeItemMoreThenten = numbers.some((item, index, array) => {
-//     return item > 10;
-// }); // isEveryItemMoreThenten === true
-
-// console.log(isSomeItemMoreThenten)
-
-// const names = ['Anna Eliz', 'Bob', 'Ivan', 'Vlad', 'Anna New'];
-
-// const isNamesIncludeAnna = names.includes('Anna'); // true
-
-// const name = names.find((item, inde, array) => {
-//     return item === 'Anna';
-// }) // 'Anna' или undefined
-
-// console.log(name);
-
-// const name = names.filter((item, inde, array) => {
-//     // return item === 'Anna';  // ['Anna', 'Anna'] или []
-
-//     // return item.includes('Anna') ? true : false;
-
-//     // if (item.includes('Anna')) {
-//     //     return true;
-//     // } else {
-//     //     return false;
-//     // }
-//     return item.includes('Anna'); // ['Anna Eliz', 'Anna New']
-// })
-
-// console.log(name);
-
-// const numbers = [1, 4, 8, 9, 11, 14];
-
-// // const sum = 0;
-
-// // numbers.forEach((item, index, array) => {
-// //     sum += item;
-// // })
-
-// const sum = numbers.reduce((result, item, index, array) => {
-//     return result + item;
-// }, 0)
-// console.log(sum);
-
-// const array = [2, 3, 78, 97, 35, 14, 55];
-
-// Написать функцию которая принимает массив и фильтрует все его числа и:
-// 1) возвращает массив только с теми которые больше 20 возведееые в стеень 3
-
-
-// const resul = [8, 27, ...];
-
-// const array = [14, 15, 78, 97, 35];
-// const newArray = array.filter(item => item > 20).map(item => item ** 3);
-
-// console.log(newArray);
-
-// function fn() {
-    // console.log('fn')
-// }
-
-// fn();
-
-// безымянная самовызывающаяся функция
-// (() => console.log('безымянная самовызывающаяся'))();
-
-// const obj = {};
-// const obj = new Object();
-
-// ФУНКЦИЯ КОНСТРУКТОР
-// const GetUser = function(name, age) {
-//     // this = {}; неявное создаение this
-//     this.name = name;
-//     this.age = age;
-//     this.addr = {
-//         city: 'Minsk',
-//         // ... много одинаковых свойств
-//     }
-//     // return this; неявное возвращение this
-// }
-
-// const user1 = new GetUser('Jon', 33);
-// // const user1 = {
-// //     name: 'Jon',
-// //     age: 33,
-// //     // addr: {
-// //     //     city: 'Minsk',
-// //     //     // ... много одинаковых свойств
-// //     // }
-// // };
-// const user2 = new GetUser('Bill', 22);
-// const user3 = new GetUser('Ivan', 124);
-// const user4 = new GetUser('Anna', 5);
-// const user5 = new GetUser('Bob', 646);
-// const user6 = new GetUser('Liza', 60);
-
-// console.log(
-//     user1,
-//     user2,
-//     user3,
-//     user4,
-//     user5,
-//     user6,
-// );
-
-// const test = {
-//     prop: 42,
-//     name: 'Jon',
-//     age: 22,
-//     func: () => {
-//         return this.name;
-//     },
-// };
-
-// console.log(test.func());
-
-const obj = {
-    name: 'Jon',
-    ...51
+function printElement(element) {
+console.log(element);
 }
 
-const MakeEmpl = function(name, age, rate) {
-    // if (name === 'Ivan') {
-        // то в this печеньки не добавляем
-    // }
+fibonacci.forEach(printElement);
 
-    this.itherValues = {
-        // ...51 свойство
-        // ...51 свойство
-        // ...51 свойство
-        // ...51 свойство
-        // ...51 свойство
-        // ...51 свойство
-        // ...51 свойство
-        // ...51 свойство
-        // ...51 свойство
-        // ...51 свойство
-        // ...51 свойство
-        // ...51 свойство
-        // ...51 свойство
-        // ...51 свойство
-        // ...51 свойство
-        // ...51 свойство
-        // ...51 свойство
-        // ...51 свойство
-        // ...51 свойство
-        // ...51 свойство
-        // ...51 свойство
-        // ...51 свойство
-        // ...51 свойство
-    }
 
-    this.name = name;
-    this.age = age;
+const fibonacci2 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987];
+
+fibonacci2.forEach(element => console.log(element));
+
+//2
+
+const users = ['Darya', 'Masha', 'Denis', 'Vitaliy', 'Polina', 'Anton'];
+
+function createMemberStrings(users) {
+return users.map(function(user, index) {
+return `member ${index + 1}: ${user}`;
+});
+}
+
+console.log(createMemberStrings(users));
+
+
+const users2 = ['Darya', 'Masha', 'Denis', 'Vitaliy', 'Polina', 'Anton'];
+
+const createMemberStrings2 = users => users.map((user, index) => `member ${index + 1}: ${user}`);
+
+const memberStrings = createMemberStrings2(users2);
+console.log(memberStrings);
+
+//3
+
+const numbers = [7, -4, 32, -90, 54, 32, -21];
+
+function filterPositiveNumbers(arr) {
+return arr.filter(function(num) {
+return num >= 0;
+});
+}
+
+console.log(filterPositiveNumbers(numbers));
+
+
+
+const numbers2 = [7, -4, 32, -90, 54, 32, -21];
+
+const filterPositiveNumbers2 = arr => arr.filter(num => num >= 0);
+
+console.log(filterPositiveNumbers2(numbers2));
+
+//4
+
+const fibonacci3 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987];
+
+function sumArray(arr) {
+return arr.reduce(function(total, num) {
+return total + num;
+}, 0);
+}
+
+console.log(sumArray(fibonacci3));
+
+
+const fibonacci4 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987];
+
+const sumArray4 = arr => arr.reduce((total, num) => total + num, 0);
+
+console.log(sumArray4(fibonacci4));
+
+//5
+
+function findEvenNumber(element) {
+    return element % 2 === 0;
+}
+
+const numbers5 = [5, 9, 13, 24, 54, 10, 13, 99, 1, 5];
+const evenNumber5 = numbers5.find(findEvenNumber);
+
+console.log(evenNumber5); 
+
+const numbers6 = [5, 9, 13, 24, 54, 10, 13, 99, 1, 5];
+const evenNumber6 = numbers6.find(element => element % 2 === 0);
+
+console.log(evenNumber6);
+
+
+// LVL UP 1
+
+function Student(salary, rate, name) {
+    this.salary = salary;
     this.rate = rate;
+    this.name = name;
 
-    // return this === {
-        // name
-        // age
-        // rate
-        // ...51 свойство
-    // }
-};
+    this.calculateCredit = function() {
+        switch(this.rate) {
+            case 'A':
+                return this.salary * 12;
+            case 'B':
+                return this.salary * 9;
+            case 'C':
+                return this.salary * 6;
+            case 'D':
+                return 0;
+            default:
+                return 0;
+        }
+    }
+}
 
-const names = ['Anna Eliz', 'Bob', 'Ivan', 'Vlad', 'Anna New'];
+let students = [];
+students.push(new Student(2000, 'A', 'Olga'));
+students.push(new Student(2500, 'B', 'Oleg'));
+students.push(new Student(3000, 'C', 'Dasha'));
+students.push(new Student(3500, 'D', 'Misha'));
+students.push(new Student(4000, 'A', 'Ivan'));
+
+function calculateTotalCredit(students) {
+    let totalCredit = 0;
+    for(let i = 0; i < students.length; i++) {
+        totalCredit += students[i].calculateCredit();
+    }
+    return totalCredit;
+}
+
+console.log(calculateTotalCredit(students));
+
+// LVL UP 2
+
+function removeVowels(str) {
+    return str.replace(/[aeiouAEIOU]/g, '');
+}
+
+console.log(removeVowels("This website is for losers LOL!")); 
 
 
-const newNameusingConstructor = names.map((item, index) => {
-    return new MakeEmpl(item, index, 300)
-})
+// LVL UP 3
 
-console.log(names, newNameusingConstructor)
+function accum(s) {
+    return s.split('').map((char, index) => char.toUpperCase() + char.toLowerCase().repeat(index)).join('-');
+}
 
+console.log(accum('abcd')); 
+console.log(accum('RqaEzty')); 
+console.log(accum('cwAt'));
+
+// LVL UP 4
+
+function highAndLow(numbers) {
+    const numArr = numbers.split(' ').map(Number);
+    const maxNum = Math.max(...numArr);
+    const minNum = Math.min(...numArr);
+    
+    return `${maxNum} ${minNum}`;
+}
+
+console.log(highAndLow('1 2 3 4 5')); 
+console.log(highAndLow('1 2 -3 4 5')); 
+console.log(highAndLow('1 9 3 4 -5')); 
+
+// LVL UP 5
+
+function isIsogram(str) {
+    const lowerCaseStr = str.toLowerCase();
+    for (let i = 0; i < lowerCaseStr.length; i++) {
+        for (let j = i + 1; j < lowerCaseStr.length; j++) {
+            if (lowerCaseStr[i] === lowerCaseStr[j]) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+console.log(isIsogram("Сон")); 
+console.log(isIsogram("Sleep")); 
+console.log(isIsogram("Спать")); 
+
+// LVL UP 6
+
+const str = 'ABC';
+let total1 = '';
+for (let i = 0; i < str.length; i++) {
+    total1 += str.charCodeAt(i);
+}
+console.log(total1); 
+
+let total2 = total1.replace(/7/g, '1');
+console.log(total2); 
+
+let sum1 = total1.split('').reduce((acc, curr) => acc + parseInt(curr), 0);
+let sum2 = total2.split('').reduce((acc, curr) => acc + parseInt(curr), 0);
+let difference = sum1 - sum2;
+console.log(difference); 
+
+// LVL UP 7
+
+function duplicateEncode(word) {
+    word = word.toLowerCase();
+    let result = '';
+    for (let i = 0; i < word.length; i++) {
+        if (word.indexOf(word[i]) === word.lastIndexOf(word[i])) {
+            result += '(';
+        } else {
+            result += ')';
+        }
+    }
+    return result;
+}
+
+console.log(duplicateEncode('din')); 
+console.log(duplicateEncode('recede')); 
+console.log(duplicateEncode('Success'));
+console.log(duplicateEncode('(( @'));
