@@ -1,56 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sedan:ital@0;1&display=swap');
+
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box;  
 }
-
-ul,
-ol {
-    list-style: none;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-.header {
-    background-color: bisque;
-    width: 100%;
-}
-
-.wrapper {
+ .container{
+    outline: 2px solid black;
+    margin: 100px auto;
+    width: 1200px;
+    border-radius: 30px;
+    border-color: black;
     display: flex;
+    background: rgb(182, 177, 177);
+    flex-direction: row;
     justify-content: space-between;
+    flex-wrap: wrap;
+ }
+
+ .button{
+    margin: 30px;
+    outline: 2px solid black;
+    background-color: aqua;
     align-items: center;
-    padding: 15px;
-}
+    width: 13%;
+    height: 80px;
+    border-radius: 10px;
+    font-style: Roboto;
+    font-weight: 600;
+ }
 
-.logo {
-    width: 50px;
-}
+ .input{
+    margin: 30px;
+    outline: 2px solid black;
+    align-items: center;
+    width: 39%;
+    height: 80px;
+    border-radius: 10px;
+    font-size: larger;
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    padding: 12px 20px;
+    box-sizing: border-box;
+ }
 
-.logo img {
+ .All_text {
+    margin-top: 60px;
+    margin-left: 70px;
+    font-family: "Sedan", serif;
+    font-weight: 400;
+    font-style: normal;
+    align-items: center;
+    justify-content: center;
+ }
+
+ .comp_text{
+    margin-top: 60px;
+    margin-left: 70px;
+    font-family: "Sedan", serif;
+    font-weight: 400;
+    font-style: normal;
+    align-items: center;
+    justify-content: center;
+ }
+
+ .button2{
+    margin: 30px;
+    outline: 2px solid black;
+    background-color: aqua;
+    align-items: center;
+    width: 23%;
+    height: 80px;
+    border-radius: 10px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+ }
+
+ .input2{
+    margin: 30px;
+    outline: 2px solid black;
+    align-items: center;
+    width: 16%;
+    height: 80px;
+    border-radius: 10px;
+    font-size: larger;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    padding: 12px 20px;
+    box-sizing: border-box;
+ }
+
+ .containerToDo{
+    margin: 40px auto;
     width: 100%;
-}
-
-#list {
+    max-height: 800px;
     display: flex;
-}
+    flex-direction: column;
+    justify-content: space-around;
+    flex-wrap: wrap;
+ }
 
-.item {
-    margin-right: 25px;
-}
+ .containerToDoElement1{
+    margin: auto;
+    width: 70%;
+    height: 170px;
+    outline: 2px solid black;
+    border-radius: 30px;
+    border-color: black;
+    display: flex;
+    background: rgb(144, 142, 142);
+    flex-direction: row;
+    justify-content: space-between;
+ }
 
-.item:last-child {
-    margin-right: 0;
-}
+ .ToDocheckbox{
+    margin-top: 60px;
+    margin-left: 30px;
+    width: 10%;
+    height: 40px;
+    background-color: aqua;
+    cursor: pointer;
+ }
 
-.big-input {
-    width: 150px;
-    height: 150px;
-}
+  .inputToDo {
+    margin: auto;
+    width: 55%;
+    height: 80px;
+    outline: 2px solid black;
+    border-radius: 30px;
+    border-color: black;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    padding: 12px 20px;
+    box-sizing: border-box;
+  }
+  .XbuttonandData{
+    margin: 0;
+    padding-right: 15px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
 
-.red-text {
-    color: red;
-}
+  }
+
+  .button3{
+    margin: 0;
+    outline: 2px solid black;
+    background-color: aqua;
+    align-items: center;
+    width: 50%;
+    height: 40px;
+    border-radius: 10px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+  }
+
+  .inputData {
+    margin-bottom: 0;
+    width: 75%;
+    height: 45px;
+    outline: 2px solid black;
+    border-radius: 10px;
+    border-color: black;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    padding: 12px 20px;
+    box-sizing: border-box;
+  }
+
+  .containerToDoElement2{
+    margin: auto;
+    margin-top: 40px;
+    width: 70%;
+    height: 170px;
+    outline: 2px solid black;
+    border-radius: 30px;
+    border-color: black;
+    display: flex;
+    background: rgb(182, 177, 177);
+    flex-direction: row;
+    justify-content: space-between;
+ }
+
+ .ToDocheckbox{
+    margin-top: 60px;
+    margin-left: 30px;
+    width: 10%;
+    height: 40px;
+    background-color: aqua;
+    cursor: pointer;
+ }
+
+  .inputToDo2 {
+    margin: auto;
+    width: 55%;
+    height: 80px;
+    outline: 2px solid black;
+    border-radius: 30px;
+    border-color: black;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    padding: 12px 20px;
+    box-sizing: border-box;
+  }
+  .XbuttonandData2{
+    margin: 0;
+    padding-right: 15px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+
+  }
+
+  .button3repeat{
+    margin: 0;
+    outline: 2px solid black;
+    background-color: aqua;
+    align-items: center;
+    width: 50%;
+    height: 40px;
+    border-radius: 10px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+  }
+
+  .inputData2 {
+    margin-bottom: 0;
+    width: 75%;
+    height: 45px;
+    outline: 2px solid black;
+    border-radius: 10px;
+    border-color: black;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    padding: 12px 20px;
+    box-sizing: border-box;
+  }
