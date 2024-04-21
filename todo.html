@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <main>
+        <section class="section">
+            <div class="container">
+
+                <div class="actions">
+                    <div class="actions__add-new">
+                        <button class="button">Delete All</button>
+                        <button class="button">Delete Last</button>
+                        <input class="enter-todo" type="text" id="text" placeholder="Enter todo...">
+                        <button class="button">Add</button>
+                    </div>
+                    <div class="actions__filter">
+                        <span class="text">All:2</span>
+                        <span class="text">Completed: 1</span>
+                        <button class="button">Show All</button>
+                        <button class="button">Show Completed</button>
+                        <input class="search" type="text" placeholder="Search...">
+                    </div>
+                </div>
+
+                <ul class="todos">
+                    <li class="todos__item">
+
+                        <input сlass="todos__item-checkbox" type="checkbox" checked>
+                        <p class="todos__item-text">Todo text</p>
+
+                        <div class="todos__item-delete">
+                            <button class="button">X</button>
+                            <span class="todos__item-date">Date</span>
+                        </div>
+                    </li>
+                    <li class="todos__item">
+
+                        <input сlass="todos__item-checkbox" type="checkbox">
+                        <p class="todos__item-text">Todo text</p>
+
+                        <div class="todos__item-delete">
+                            <button class="button">X</button>
+                            <span class="todos__item-date">Date</span>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+        </section>
+    </main>
+</body>
+<script src="index.js"></script>
+
+</html>
