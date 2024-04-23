@@ -1,23 +1,69 @@
 "use strict";
 
-const todos = document.querySelector('.todos');
-const todosItem = document.createElement('li');
+// при нажатии на клавишу Add добавить новую карточку с делом
 
-todosItem.classList.add('todos__item');
-todos.append(todosItem);
+const addButton = document.querySelector("#add-new-todo-item");
+addButton.addEventListener('click', () => {
+    const todos = document.querySelector('.todos');
+    const todosItem = document.createElement('li');
 
-const todosItemCheckbox = document.createElement('input');
-todosItemCheckbox.classList.add('todos__item-checkbox');
-todosItemCheckbox.setAttribute('type', 'checkbox');
-todosItemCheckbox.setAttribute('checked', '');
-todosItem.append(todosItemCheckbox);
+    todosItem.classList.add('todos__item');
+    todos.append(todosItem);
 
-const todosItemText = document.createElement('p');
-todosItemText.classList.add('todos__item-text');
-todosItemText.textContent = 'Todo text';
-todosItem.append(todosItemText);
+    const todosItemCheckbox = document.createElement('input');
+    todosItemCheckbox.classList.add('todos__item-checkbox');
+    todosItemCheckbox.setAttribute('type', 'checkbox');
+    todosItem.append(todosItemCheckbox);
+    
+    const todosItemText = document.createElement('p');
+    todosItemText.classList.add('todos__item-text');
+    const addNewTodoText = document.querySelector('#add-new-todo-text');
+    todosItemText.textContent = addNewTodoText.value;
+    addNewTodoText.value = '';
+    todosItem.append(todosItemText);
 
-const todosItemDelete = document.createElement('div');
-todosItemDelete.classList.add('todos__item-delete');
-todosItemDelete.innerHTML = `<button class="button">X</button> <span class="todos__item-date">Date</span>`;
-todosItem.append(todosItemDelete);
+    const todosItemDelete = document.createElement('div');
+    todosItemDelete.classList.add('todos__item-delete');
+    todosItem.append(todosItemDelete);
+
+    const todosItemDeleteButton = document.createElement('button');
+    todosItemDeleteButton.classList.add('button-delete');
+    todosItemDeleteButton.textContent = 'X';
+    todosItemDelete.append(todosItemDeleteButton);
+
+    // при нажатии на клавишу Х удалять именно ту карточку, на которой произошел клик по кнопке
+
+    todosItemDeleteButton.addEventListener('click', () => {
+        todosItem.remove();
+    });
+
+    // поле с датой генерировать автоматически. Используйте объект new Date()
+
+    const todosItemDate = document.createElement('span');
+    todosItemDate.classList.add('todos__item-date');
+    todosItemDate.textContent = new Date().toISOString().slice(0, 10);
+    todosItemDelete.append(todosItemDate);
+
+});
+
+// при нажатии на клавишу Delete All удалить все карточки
+
+const deleteAll = document.querySelector('#delete-all');
+deleteAll.addEventListener('click', () => {
+    const todos = document.querySelector('.todos');
+    todos.innerHTML = '';
+})
+
+// при нажатии на клавишу Delete Last удалить все карточки
+
+const deleteLast = document.querySelector('#delete-last');
+deleteLast.addEventListener('click', () => {
+    const todos = document.querySelector('.todos');
+    todos.removeChild(todos.lastChild);
+})
+
+// при нажатии на checkbox менять цвет карточки и зачеркивать текст внутри него
+// сделала через CSS
+
+
+

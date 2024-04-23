@@ -47,6 +47,9 @@
     background-color: rgb(154 152 152 / 50%);
 }
 
+.todos__item:has(input[type="checkbox"]:checked) p {
+    text-decoration: line-through;
+}
 
 .todos__item-delete {
     display: flex;
@@ -62,6 +65,13 @@
 
 
 .button {
+    padding: 0 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: aqua;
+}
+
+.button-delete {
     padding: 0 10px;
     border: 2px solid black;
     border-radius: 5px;
@@ -100,7 +110,7 @@
 
 .todos__item-date {
     padding: auto;
-    width: 50px;
+    width: 100px;
     border: 2px solid white;
     border-radius: 3px;
     background-color: white;
