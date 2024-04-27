@@ -55,37 +55,41 @@ const blockContainerToDo = document.createElement('div');
 blockContainerToDo.className = 'blockContainerToDo';
 block.append(blockContainerToDo);
 
-const blockContainerToDoActive = document.createElement('div');
-blockContainerToDoActive.className = 'blockContainerToDoActive';
-blockContainerToDo.append(blockContainerToDoActive);
+// const blockContainerToDoActive = document.createElement('div');
+// blockContainerToDoActive.className = 'blockContainerToDoActive';
+// blockContainerToDo.append(blockContainerToDoActive);
 
-const blockContainerToDoActiveCheckbox = document.createElement('input');
-blockContainerToDoActiveCheckbox.type = 'checkbox';
-blockContainerToDoActiveCheckbox.className = 'blockContainerToDoActiveCheckbox';
-blockContainerToDoActive.prepend(blockContainerToDoActiveCheckbox);
+// const blockContainerToDoActiveCheckbox = document.createElement('input');
+// blockContainerToDoActiveCheckbox.type = 'checkbox';
+// blockContainerToDoActiveCheckbox.className = 'blockContainerToDoActiveCheckbox';
+// blockContainerToDoActive.prepend(blockContainerToDoActiveCheckbox);
 
-const inputToDoValue = document.createElement('input');
-inputToDoValue.className = 'inputToDoValue';
-inputToDoValue.name = "ToDo_text";
-inputToDoValue.placeholder = "ToDo text";
-blockContainerToDoActive.append(inputToDoValue);
+// const inputToDoValue = document.createElement('div'); //ex-input
+// inputToDoValue.className = 'inputToDoValue';
+// inputToDoValue.name = "ToDo_text";
+// blockContainerToDoActive.append(inputToDoValue);
 
-const blockCloseData = document.createElement('div');
-blockCloseData.className = 'blockCloseData';
-blockContainerToDoActive.append(blockCloseData);
+// const inputToDoValueToDotext = document.createElement('span');
+// inputToDoValueToDotext.className = 'inputToDoValueToDotext';
+// inputToDoValueToDotext.textContent = inputValue.value;
+// inputToDoValue.append(inputToDoValueToDotext);
 
-const blockCloseButton = document.createElement('button');
-blockCloseButton.className = 'blockCloseButton';
-blockCloseButton.textContent = " X ";
-blockCloseData.prepend(blockCloseButton);
+// const blockCloseData = document.createElement('div');
+// blockCloseData.className = 'blockCloseData';
+// blockContainerToDoActive.append(blockCloseData);
 
-const inputData = document.createElement('input');
-inputData.className = 'inputData';
-inputData.placeholder = "Data";
-const currentDate = new Date();
-const dateString = `${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()}`;
-inputData.value = dateString; 
-blockCloseData.append(inputData);
+// const blockCloseButton = document.createElement('button');
+// blockCloseButton.className = 'blockCloseButton';
+// blockCloseButton.textContent = " X ";
+// blockCloseData.prepend(blockCloseButton);
+
+// const inputData = document.createElement('input');
+// inputData.className = 'inputData';
+// inputData.placeholder = "Data";
+// const currentDate = new Date();
+// const dateString = `${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()}`;
+// inputData.value = dateString; 
+// blockCloseData.append(inputData);
 
 
 main.addEventListener('change', function(event) {
@@ -114,11 +118,15 @@ newToDoActiveCheckbox.type = 'checkbox';
 newToDoActiveCheckbox.className = 'blockContainerToDoActiveCheckbox';
 newToDoActive.prepend(newToDoActiveCheckbox);
 
-const newInputToDoValue = document.createElement('input');
-newInputToDoValue.className = 'inputToDoValue';
-newInputToDoValue.name = "ToDo_text";
-newInputToDoValue.placeholder = "ToDo text";
-newToDoActive.append(newInputToDoValue);
+const newinputToDoValue = document.createElement('div'); //input
+newinputToDoValue.className = 'inputToDoValue';
+newinputToDoValue.name = "ToDo_text";
+newToDoActive.append(newinputToDoValue);
+
+const newinputToDoValueToDotext = document.createElement('span');
+newinputToDoValueToDotext.className = 'inputToDoValueToDotext';
+newinputToDoValueToDotext.textContent = inputValue.value;
+newinputToDoValue.append(newinputToDoValueToDotext);
 
 const newblockCloseData = document.createElement('div');
 newblockCloseData.className = 'blockCloseData';
@@ -142,6 +150,12 @@ newblockCloseButton.addEventListener('click', function() {
     });
     });
 
+    buttonDeleteLast.addEventListener('click', function() {
+        const lastToDoActive = blockContainerToDo.lastChild;
+        if (lastToDoActive) {
+          lastToDoActive.remove();}});
+
+
     buttonDeleteAll.addEventListener('click', function() {
         while (blockContainerToDo.firstChild) {
             blockContainerToDo.removeChild(blockContainerToDo.firstChild);
@@ -152,8 +166,3 @@ blockCloseButton.addEventListener('click', function() {
     blockContainerToDoActive.remove();
     });
 
-
-
-
-        
-        

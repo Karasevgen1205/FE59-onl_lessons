@@ -8,7 +8,7 @@ box-sizing: border-box;
 .block{
 outline: 2px solid black;
 margin: 100px auto;
-width: 1200px;
+width: 90%;
 border-radius: 30px;
 border-color: black;
 display: flex;
@@ -159,6 +159,7 @@ cursor: pointer;
 }
 
 .inputToDoValue {
+display: flex;
 margin: auto;
 width: 55%;
 height: 80px;
@@ -169,6 +170,14 @@ font-family: "Roboto", sans-serif;
 font-weight: 700;
 padding: 12px 20px;
 box-sizing: border-box;
+align-items: center;
+}
+
+.inputToDoValueToDotext{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .blockCloseData{
