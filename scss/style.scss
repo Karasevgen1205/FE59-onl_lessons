@@ -31,7 +31,25 @@ a {
     display: flex;
     justify-content: center;
     margin-bottom: 15px;
-            &-button{
+            &-buttonDelAll{
+                border: 2px solid black;
+                border-radius: 10px;
+                width: 100px;
+                padding: 10px 0;
+                text-align: center;
+                cursor: pointer;
+                background-color: aqua;
+            }
+            &-buttonDelLast{
+                border: 2px solid black;
+                border-radius: 10px;
+                width: 100px;
+                padding: 10px 0;
+                text-align: center;
+                cursor: pointer;
+                background-color: aqua;
+            }
+            &-buttonAdd{
                 border: 2px solid black;
                 border-radius: 10px;
                 width: 100px;
@@ -48,7 +66,9 @@ a {
                 border-radius: 8px;
                 margin: 0px 10px;
             }
-    
+            .margin-button{
+                margin-left: 10px;
+            }
     }
     .banner__bottom__module{
         display: flex;
@@ -74,9 +94,10 @@ a {
             border-radius: 8px;
             margin-left: 12px;
         }
-        .margin-button{
-            margin-left: 10px;
-        }
+        
+    }
+    .margin-button{
+        margin-left: 10px;
     }
 }
 

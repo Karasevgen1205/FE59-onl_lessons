@@ -34,7 +34,25 @@ a {
   justify-content: center;
   margin-bottom: 15px;
 }
-.banner__top__module-button {
+.banner__top__module-buttonDelAll {
+  border: 2px solid black;
+  border-radius: 10px;
+  width: 100px;
+  padding: 10px 0;
+  text-align: center;
+  cursor: pointer;
+  background-color: aqua;
+}
+.banner__top__module-buttonDelLast {
+  border: 2px solid black;
+  border-radius: 10px;
+  width: 100px;
+  padding: 10px 0;
+  text-align: center;
+  cursor: pointer;
+  background-color: aqua;
+}
+.banner__top__module-buttonAdd {
   border: 2px solid black;
   border-radius: 10px;
   width: 100px;
@@ -50,6 +68,9 @@ a {
   border: 2px solid black;
   border-radius: 8px;
   margin: 0px 10px;
+}
+.banner__top__module .margin-button {
+  margin-left: 10px;
 }
 .banner__top .banner__bottom__module {
   display: flex;
@@ -76,7 +97,7 @@ a {
   border-radius: 8px;
   margin-left: 12px;
 }
-.banner__top .banner__bottom__module .margin-button {
+.banner__top .margin-button {
   margin-left: 10px;
 }
 
