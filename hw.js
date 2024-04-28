@@ -55,114 +55,173 @@ const blockContainerToDo = document.createElement('div');
 blockContainerToDo.className = 'blockContainerToDo';
 block.append(blockContainerToDo);
 
-// const blockContainerToDoActive = document.createElement('div');
-// blockContainerToDoActive.className = 'blockContainerToDoActive';
-// blockContainerToDo.append(blockContainerToDoActive);
 
-// const blockContainerToDoActiveCheckbox = document.createElement('input');
-// blockContainerToDoActiveCheckbox.type = 'checkbox';
-// blockContainerToDoActiveCheckbox.className = 'blockContainerToDoActiveCheckbox';
-// blockContainerToDoActive.prepend(blockContainerToDoActiveCheckbox);
+if (!localStorage.getItem('todos')) {
+    localStorage.setItem('todos', JSON.stringify([]));
+  }
 
-// const inputToDoValue = document.createElement('div'); //ex-input
-// inputToDoValue.className = 'inputToDoValue';
-// inputToDoValue.name = "ToDo_text";
-// blockContainerToDoActive.append(inputToDoValue);
+  function getTodos() {
+    return JSON.parse(localStorage.getItem('todos'));
+  }
+  
 
-// const inputToDoValueToDotext = document.createElement('span');
-// inputToDoValueToDotext.className = 'inputToDoValueToDotext';
-// inputToDoValueToDotext.textContent = inputValue.value;
-// inputToDoValue.append(inputToDoValueToDotext);
+  function setTodos(todos) {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }
 
-// const blockCloseData = document.createElement('div');
-// blockCloseData.className = 'blockCloseData';
-// blockContainerToDoActive.append(blockCloseData);
-
-// const blockCloseButton = document.createElement('button');
-// blockCloseButton.className = 'blockCloseButton';
-// blockCloseButton.textContent = " X ";
-// blockCloseData.prepend(blockCloseButton);
-
-// const inputData = document.createElement('input');
-// inputData.className = 'inputData';
-// inputData.placeholder = "Data";
-// const currentDate = new Date();
-// const dateString = `${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()}`;
-// inputData.value = dateString; 
-// blockCloseData.append(inputData);
-
-
-main.addEventListener('change', function(event) {
-    const target = event.target;
-    if (target.classList.contains('blockContainerToDoActiveCheckbox')) {
-        const parentCard = target.parentElement;
-        const inputToDoValue = parentCard.querySelector('.inputToDoValue');
-        if (target.checked) {
-            inputToDoValue.style.textDecoration = 'line-through';
-            parentCard.style.backgroundColor = 'lightgrey';
-        } else {
-            inputToDoValue.style.textDecoration = 'none';
-            parentCard.style.backgroundColor = 'rgb(182, 177, 177)';
-        }
-        }
-});
-
+  let newToDoActiveId = 1;
 
 buttonAdd.addEventListener('click', function() {
-const newToDoActive = document.createElement('div');
-newToDoActive.className = 'blockContainerToDoActive';
-blockContainerToDo.append(newToDoActive);
+  const newToDoActive = document.createElement('div');
+  newToDoActive.className = 'blockContainerToDoActive';
+  blockContainerToDo.append(newToDoActive);
+  newToDoActive.id = `active-todo-${newToDoActiveId}`; 
 
-const newToDoActiveCheckbox = document.createElement('input');
-newToDoActiveCheckbox.type = 'checkbox';
-newToDoActiveCheckbox.className = 'blockContainerToDoActiveCheckbox';
-newToDoActive.prepend(newToDoActiveCheckbox);
+  const newToDoActiveCheckbox = document.createElement('input');
+  newToDoActiveCheckbox.type = 'checkbox';
+  newToDoActiveCheckbox.className = 'blockContainerToDoActiveCheckbox';
+  if (getTodos().some(todo => todo.id === newToDoActiveId)) {
+    newToDoActiveCheckbox.checked = getTodos().find(todo => todo.id === newToDoActiveId).isChecked;
+  }
+  
+  newToDoActive.prepend(newToDoActiveCheckbox);
 
-const newinputToDoValue = document.createElement('div'); //input
-newinputToDoValue.className = 'inputToDoValue';
-newinputToDoValue.name = "ToDo_text";
-newToDoActive.append(newinputToDoValue);
+  const newinputToDoValue = document.createElement('div');
+  newinputToDoValue.className = 'inputToDoValue';
+  newinputToDoValue.name = "ToDo_text";
+  newToDoActive.append(newinputToDoValue);
 
-const newinputToDoValueToDotext = document.createElement('span');
-newinputToDoValueToDotext.className = 'inputToDoValueToDotext';
-newinputToDoValueToDotext.textContent = inputValue.value;
-newinputToDoValue.append(newinputToDoValueToDotext);
+  const newinputToDoValueToDotext = document.createElement('span');
+  newinputToDoValueToDotext.className = 'inputToDoValueToDotext';
+  newinputToDoValueToDotext.textContent = inputValue.value;
+  newinputToDoValue.append(newinputToDoValueToDotext);
 
-const newblockCloseData = document.createElement('div');
-newblockCloseData.className = 'blockCloseData';
-newToDoActive.append(newblockCloseData);
+  const newblockCloseData = document.createElement('div');
+  newblockCloseData.className = 'blockCloseData';
+  newToDoActive.append(newblockCloseData);
 
-const newblockCloseButton = document.createElement('button');
-newblockCloseButton.className = 'blockCloseButton';
-newblockCloseButton.textContent = " X ";
-newblockCloseData.prepend(newblockCloseButton);
+  const newblockCloseButton = document.createElement('button');
+  newblockCloseButton.className = 'blockCloseButton';
+  newblockCloseButton.textContent = " X ";
+  newblockCloseData.prepend(newblockCloseButton);
 
-const newInputData = document.createElement('input');
-newInputData.className = 'inputData';
-newInputData.placeholder = "Data";
-const currentDate = new Date();
-const dateString = `${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()}`;
-newInputData.value = dateString; 
-newblockCloseData.append(newInputData);
+  const newInputData = document.createElement('input');
+  newInputData.className = 'inputData';
+  newInputData.placeholder = "Data";
+  const currentDate = new Date();
+  const dateString = 
+    `${currentDate.getHours()}:${currentDate.getMinutes()} ${currentDate.getDate()} ${currentDate.toLocaleString('default', { month: 'long' })} ${currentDate.getFullYear()}`;
+  newInputData.value = dateString;
+  newblockCloseData.append(newInputData);
 
-newblockCloseButton.addEventListener('click', function() {
+  newblockCloseButton.addEventListener('click', function() {
     newToDoActive.remove();
-    });
-    });
+  });
 
-    buttonDeleteLast.addEventListener('click', function() {
-        const lastToDoActive = blockContainerToDo.lastChild;
-        if (lastToDoActive) {
-          lastToDoActive.remove();}});
+  
+  const newTodo = {
+    id: newToDoActiveId,
+    date: dateString,
+    text: inputValue.value,
+    isChecked: newToDoActiveCheckbox.checked,
+  };
+  const todos = getTodos();
+  todos.push(newTodo);
+  setTodos(todos);
 
+  newToDoActiveId++;
+});
 
-    buttonDeleteAll.addEventListener('click', function() {
-        while (blockContainerToDo.firstChild) {
-            blockContainerToDo.removeChild(blockContainerToDo.firstChild);
-        }
+window.addEventListener('load', function() {
+  const todos = getTodos();
+  todos.forEach(todo => {
+    const newToDoActive = document.createElement('div');
+    newToDoActive.className = 'blockContainerToDoActive';
+    blockContainerToDo.append(newToDoActive);
+    newToDoActive.id = `active-todo-${todo.id}`;
+
+    const newToDoActiveCheckbox = document.createElement('input');
+    newToDoActiveCheckbox.type = 'checkbox';
+    newToDoActiveCheckbox.className = 'blockContainerToDoActiveCheckbox';
+    newToDoActiveCheckbox.checked = todo.isChecked;
+    newToDoActive.prepend(newToDoActiveCheckbox);
+
+    const newinputToDoValue = document.createElement('div');
+    newinputToDoValue.className = 'inputToDoValue';
+    newinputToDoValue.name = "ToDo_text";
+    newToDoActive.append(newinputToDoValue);
+
+    const newinputToDoValueToDotext = document.createElement('span');
+    newinputToDoValueToDotext.className = 'inputToDoValueToDotext';
+    newinputToDoValueToDotext.textContent = todo.text;
+    newinputToDoValue.append(newinputToDoValueToDotext);
+
+    const newblockCloseData = document.createElement('div');
+    newblockCloseData.className = 'blockCloseData';
+    newToDoActive.append(newblockCloseData);
+
+    const newblockCloseButton = document.createElement('button');
+    newblockCloseButton.className = 'blockCloseButton';
+    newblockCloseButton.textContent = " X ";
+    newblockCloseData.prepend(newblockCloseButton);
+
+    const newInputData = document.createElement('input');
+    newInputData.className = 'inputData';
+    newInputData.placeholder = "Data";
+    newInputData.value = todo.date;
+    newblockCloseData.append(newInputData);
+
+    newblockCloseButton.addEventListener('click', function() {
+        newToDoActive.remove();
+      
+        const todos = getTodos();
+        const todoId = parseInt(newToDoActive.id.split('-')[2]);
+        const todoIndex = todos.findIndex(todo => todo.id === todoId);
+        todos.splice(todoIndex, 1);
+        setTodos(todos);
+      });
+      
     });
-    
-blockCloseButton.addEventListener('click', function() {
-    blockContainerToDoActive.remove();
-    });
+  });
+  
+;
 
+buttonDeleteLast.addEventListener('click', function() {
+    const lastToDoActive = blockContainerToDo.lastChild;
+    if (lastToDoActive) {
+      lastToDoActive.remove();
+      const todos = getTodos();
+      const lastTodoId = parseInt(lastToDoActive.id.split('-')[2]);
+      const todoIndex = todos.findIndex(todo => todo.id === lastTodoId);
+      todos.splice(todoIndex, 1);
+      setTodos(todos);
+    }
+  });
+  
+  buttonDeleteAll.addEventListener('click', function() {
+    while (blockContainerToDo.firstChild) {
+      blockContainerToDo.removeChild(blockContainerToDo.firstChild);
+    }
+  
+    localStorage.setItem('todos', JSON.stringify([]));
+  });
+
+  main.addEventListener('change', function(event) {
+    const target = event.target;
+    if (target.classList.contains('blockContainerToDoActiveCheckbox')) {
+      const parentCard = target.parentElement;
+      const inputToDoValue = parentCard.querySelector('.inputToDoValueToDotext');
+      if (target.checked) {
+        inputToDoValue.style.textDecoration = 'line-through';
+        parentCard.style.backgroundColor = 'lightgrey';
+      } else {
+        inputToDoValue.style.textDecoration = 'none';
+        parentCard.style.backgroundColor = 'rgb(182, 177, 177)';
+      }
+  
+      const todos = getTodos();
+      const todoIndex = todos.findIndex(todo => todo.id === parseInt(parentCard.id.split('-')[2]));
+      todos[todoIndex].isChecked = target.checked;
+      setTodos(todos);
+    }
+  });
