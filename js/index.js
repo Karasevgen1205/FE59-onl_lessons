@@ -9,6 +9,9 @@ const todoItems = document.querySelector('.banner__bottom__block__container');
 const create = document.querySelector('.banner__top__module-input');
 const deleteButton = document.querySelectorAll('.banner__bottom__block__container-button');
 
+  const date = new Date().toISOString().slice(0, 10).split('-').reverse().join('.');
+
+
     deleteAllButton.addEventListener('click', () => {
     const todoList = list;
     todoList.innerHTML = '';
@@ -22,13 +25,10 @@ const deleteButton = document.querySelectorAll('.banner__bottom__block__containe
     
   });
 
-  //   deleteLastButton.addEventListener('click', (event) => {
-  //   const lastItem = todoItems[todoItems.length - 1];
-  //   lastItem.remove();
-  // });
-
-
-
+    deleteLastButton.addEventListener('click', () => {
+    const lastItem = todoItems.parentElement.lastChild;
+    lastItem.remove();
+  });
 
     addButton.addEventListener('click', () => {
     const inputText = create.value;
@@ -41,7 +41,7 @@ const deleteButton = document.querySelectorAll('.banner__bottom__block__containe
           <input class="banner_bottom__block__container-input" type="checkbox">
             <p class="banner__bottom__block__container-text">${inputText}</p>
             <button class="banner__bottom__block__container-button">x</button>
-            <p class="banner__bottom__block__container-textDate">Date</p>
+            <p class="banner__bottom__block__container-textDate">${date}</p>
         `;
       list.append(todoAdd);
       }
@@ -54,10 +54,3 @@ const deleteButton = document.querySelectorAll('.banner__bottom__block__containe
 
 
   
-  function generateDate() {
-    const today = new Date();
-    const dd = String(today.getDate()).padStart(2, '0');
-    const mm = String(today.getMonth() + 1).padStart(2, '0');
-    const yyyy = today.getFullYear();
-    return `${yyyy}-${mm}-${dd}`;
-  }
