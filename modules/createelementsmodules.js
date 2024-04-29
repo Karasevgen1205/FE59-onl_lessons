@@ -28,12 +28,12 @@ block.append(block__button__add_todo);
 
 const block__text_all = document.createElement('div');
 block__text_all.className = 'block__text_all';
-block__text_all.textContent = 'All: 2';
+block__text_all.textContent = 'All: ';
 block.append(block__text_all);
 
 const block__text_completed = document.createElement('div');
 block__text_completed.className = 'block__text_completed';
-block__text_completed.textContent = 'Completed: 1';
+block__text_completed.textContent = 'Completed: ';
 block.append(block__text_completed);
 
 const block__button__show_all = document.createElement('button');

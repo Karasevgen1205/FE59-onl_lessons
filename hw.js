@@ -1,8 +1,16 @@
 
 import { createElements } from './modules/createelementsmodules.js';
+import { data } from './modules/datamodules.js';
+import { updatedata } from './modules/updatedatamodules.js';
 import { eventModules } from './modules/eventmodules.js'
 
+
 createElements();
+
+const todos = data.getTodos();
+
+updatedata.updateAllCount(todos);
+updatedata.updateCompletedCount(todos);
 
 if (!localStorage.getItem('todos')) {
 localStorage.setItem('todos', JSON.stringify([]));
@@ -12,23 +20,23 @@ if (!localStorage.getItem('newToDoActiveId')) {
 localStorage.setItem('newToDoActiveId', 1);
 }
 
-function getTodos() {
-return JSON.parse(localStorage.getItem('todos'));
-}
+// function getTodos() {
+// return JSON.parse(localStorage.getItem('todos'));
+// }
 
-function setTodos(todos) {
-localStorage.setItem('todos', JSON.stringify(todos));
-}
+// function setTodos(todos) {
+// localStorage.setItem('todos', JSON.stringify(todos));
+// }
 
-function updateAllCount() {
-  const newToDoActiveCards = document.querySelectorAll('.block__container__todo_Active');
-  block__text_all.textContent = `All: ${newToDoActiveCards.length}`;
-}
+// function updateAllCount() {
+//   const newToDoActiveCards = document.querySelectorAll('.block__container__todo_Active');
+//   block__text_all.textContent = `All: ${newToDoActiveCards.length}`;
+// }
 
-function updateCompletedCount() {
-  const checkedCheckboxes = document.querySelectorAll('.block__container__todo_Active_Checkbox:checked');
-  block__text_completed.textContent = `Completed: ${checkedCheckboxes.length}`;
-}
+// function updateCompletedCount() {
+//   const checkedCheckboxes = document.querySelectorAll('.block__container__todo_Active_Checkbox:checked');
+//   block__text_completed.textContent = `Completed: ${checkedCheckboxes.length}`;
+// }
 
 let newToDoActiveId = parseInt(localStorage.getItem('newToDoActiveId'));
 
