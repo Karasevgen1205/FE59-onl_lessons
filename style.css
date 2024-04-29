@@ -18,7 +18,7 @@ justify-content: space-between;
 flex-wrap: wrap;
 }
 
-.buttonDeleteAll{
+.block__button__delete__all{
 margin: 30px;
 outline: 2px solid black;
 background-color: aqua;
@@ -30,19 +30,19 @@ font-style: Roboto;
 font-weight: 600;
 }
 
-.buttonDeleteLast{
-    margin: 30px;
-    outline: 2px solid black;
-    background-color: aqua;
-    align-items: center;
-    width: 13%;
-    height: 80px;
-    border-radius: 10px;
-    font-style: Roboto;
-    font-weight: 600;
+.block__button__delete__last{
+margin: 30px;
+outline: 2px solid black;
+background-color: aqua;
+align-items: center;
+width: 13%;
+height: 80px;
+border-radius: 10px;
+font-style: Roboto;
+font-weight: 600;
 }
 
-.inputValue{
+.block__input_todo{
 margin: 30px;
 outline: 2px solid black;
 align-items: center;
@@ -56,19 +56,19 @@ padding: 12px 20px;
 box-sizing: border-box;
 }
 
-.buttonAdd{
-    margin: 30px;
-    outline: 2px solid black;
-    background-color: aqua;
-    align-items: center;
-    width: 13%;
-    height: 80px;
-    border-radius: 10px;
-    font-style: Roboto;
-    font-weight: 600;
+.block__button__add_todo{
+margin: 30px;
+outline: 2px solid black;
+background-color: aqua;
+align-items: center;
+width: 13%;
+height: 80px;
+border-radius: 10px;
+font-style: Roboto;
+font-weight: 600;
 }
 
-.blockAllText {
+.block__text_all {
 margin-top: 60px;
 margin-left: 70px;
 font-family: "Sedan", serif;
@@ -78,7 +78,7 @@ align-items: center;
 justify-content: center;
 }
 
-.blockCompText{
+.block__text_completed{
 margin-top: 60px;
 margin-left: 70px;
 font-family: "Sedan", serif;
@@ -88,7 +88,7 @@ align-items: center;
 justify-content: center;
 }
 
-.buttonShowAll{
+.block__button__show_all{
 margin: 30px;
 outline: 2px solid black;
 background-color: aqua;
@@ -100,7 +100,7 @@ font-family: "Roboto", sans-serif;
 font-weight: 700;
 }
 
-.buttonShowComp{
+.block__button__show_completed{
 margin: 30px;
 outline: 2px solid black;
 background-color: aqua;
@@ -112,7 +112,7 @@ font-family: "Roboto", sans-serif;
 font-weight: 700;
 }
 
-.inputSearch{
+.block__input__search{
 margin: 30px;
 outline: 2px solid black;
 align-items: center;
@@ -126,7 +126,7 @@ padding: 12px 20px;
 box-sizing: border-box;
 }
 
-.blockContainerToDo{
+.block__container__todo{
 margin: 40px auto;
 width: 100%;
 display: flex;
@@ -135,7 +135,7 @@ justify-content: space-around;
 flex-wrap: wrap;
 }
 
-.blockContainerToDoActive{
+.block__container__todo_Active{
 margin: auto;
 margin-bottom: 40px;
 width: 70%;
@@ -149,7 +149,7 @@ flex-direction: row;
 justify-content: space-between;
 }
 
-.blockContainerToDoActiveCheckbox{
+.block__container__todo_Active_Checkbox{
 margin-top: 60px;
 margin-left: 30px;
 width: 10%;
@@ -173,11 +173,16 @@ box-sizing: border-box;
 align-items: center;
 }
 
+.inputToDoValue__checked{
+background: 'lightgrey';
+text-decoration: line-through;
+}
+
 .inputToDoValueToDotext{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
 }
 
 .blockCloseData{
