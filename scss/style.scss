@@ -19,7 +19,7 @@ a {
     margin: 50px auto;
     border: 2px solid black;
     border-radius: 10px;
-    background-color: rgba(192, 185, 185, 0.937)
+    background-color: rgba(224, 222, 222, 0.937)
 }
 .banner__top{
     display: flex;
@@ -38,7 +38,7 @@ a {
                 padding: 10px 0;
                 text-align: center;
                 cursor: pointer;
-                background-color: aqua;
+                background-color: rgb(255, 0, 0);
             }
             &-buttonDelLast{
                 border: 2px solid black;
@@ -47,7 +47,7 @@ a {
                 padding: 10px 0;
                 text-align: center;
                 cursor: pointer;
-                background-color: aqua;
+                background-color: rgb(255, 0, 0);
             }
             &-buttonAdd{
                 border: 2px solid black;
@@ -56,7 +56,7 @@ a {
                 padding: 10px 0;
                 text-align: center;
                 cursor: pointer;
-                background-color: aqua;
+                background-color: rgb(51, 255, 0);
             }
             &-input{
                 width: 300px; 
@@ -85,6 +85,7 @@ a {
             padding: 10px 0;
             text-align: center;
             cursor: pointer;
+            margin-left: 10px;
         }
         &-input{
             width: 150px; 
@@ -101,19 +102,21 @@ a {
     }
 }
 
-.banner__bottom{
+.banner__bottom {
     display: flex;
     flex-direction: column;
     align-items: center;
-        &__block__container {
+        &__block__container  {
         display: flex;
         max-width: 500px;
+        max-height: 600px;
         padding: 0 8px;
         margin: 10px auto;
         border: 2px solid black;
         border-radius: 10px;
         padding: 20px 5px;
         position: relative;
+        background-color: "";
             &-input {
             transform: scale(2); 
             margin: 0 15px; 
@@ -126,6 +129,8 @@ a {
             background-color: white;
             border-radius: 5px;
             margin-left: 10px;
+            margin-bottom: 5px;
+            text-decoration: none;
             }
             &-button {
             position: absolute;
@@ -135,14 +140,14 @@ a {
             right: 5px;
             border: 2px solid black;
             border-radius: 4px;
-            background-color: aqua;
+            background-color: rgb(255, 0, 0);
             cursor: pointer;
             }
             &-textDate {
             position: absolute;
-            bottom: 5px; 
+            bottom: 1px; 
             right: 5px;
-            background-color: white;
+            background-color: rgb(183, 101, 199);
             border-radius: 4px;
             text-align: center;
             padding: 2px 15px;

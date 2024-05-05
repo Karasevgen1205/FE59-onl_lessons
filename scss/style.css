@@ -20,7 +20,7 @@ a {
   margin: 50px auto;
   border: 2px solid black;
   border-radius: 10px;
-  background-color: rgba(192, 185, 185, 0.937);
+  background-color: rgba(224, 222, 222, 0.937);
 }
 
 .banner__top {
@@ -41,7 +41,7 @@ a {
   padding: 10px 0;
   text-align: center;
   cursor: pointer;
-  background-color: aqua;
+  background-color: rgb(255, 0, 0);
 }
 .banner__top__module-buttonDelLast {
   border: 2px solid black;
@@ -50,7 +50,7 @@ a {
   padding: 10px 0;
   text-align: center;
   cursor: pointer;
-  background-color: aqua;
+  background-color: rgb(255, 0, 0);
 }
 .banner__top__module-buttonAdd {
   border: 2px solid black;
@@ -59,7 +59,7 @@ a {
   padding: 10px 0;
   text-align: center;
   cursor: pointer;
-  background-color: aqua;
+  background-color: rgb(51, 255, 0);
 }
 .banner__top__module-input {
   width: 300px;
@@ -88,6 +88,7 @@ a {
   padding: 10px 0;
   text-align: center;
   cursor: pointer;
+  margin-left: 10px;
 }
 .banner__top .banner__bottom__module-input {
   width: 150px;
@@ -96,6 +97,9 @@ a {
   border: 2px solid black;
   border-radius: 8px;
   margin-left: 12px;
+}
+.banner__top .margin-button {
+  margin-left: 10px;
 }
 
 .banner__bottom {
@@ -106,15 +110,15 @@ a {
 .banner__bottom__block__container {
   display: flex;
   max-width: 500px;
+  max-height: 600px;
   padding: 0 8px;
   margin: 10px auto;
   border: 2px solid black;
   border-radius: 10px;
   padding: 20px 5px;
   position: relative;
-  background-color: white;
+  background-color: "";
 }
-
 .banner__bottom__block__container-input {
   transform: scale(2);
   margin: 0 15px;
@@ -127,9 +131,9 @@ a {
   background-color: white;
   border-radius: 5px;
   margin-left: 10px;
+  margin-bottom: 5px;
   text-decoration: none;
 }
-
 .banner__bottom__block__container-button {
   position: absolute;
   text-align: center;
@@ -138,14 +142,14 @@ a {
   right: 5px;
   border: 2px solid black;
   border-radius: 4px;
-  background-color: aqua;
+  background-color: rgb(255, 0, 0);
   cursor: pointer;
 }
 .banner__bottom__block__container-textDate {
   position: absolute;
-  bottom: 5px;
+  bottom: 1px;
   right: 5px;
-  background-color: white;
+  background-color: rgb(183, 101, 199);
   border-radius: 4px;
   text-align: center;
   padding: 2px 15px;
