@@ -1,0 +1,110 @@
+@keyframes bounce {
+	0%, 20%, 60%, 100% {
+		transform: translateY(0);
+		transform: translateY(0);
+	}
+
+	40% {
+		transform: translateY(-20px);
+		transform: translateY(-20px);
+	}
+
+	80% {
+		transform: translateY(-10px);
+		transform: translateY(-10px);
+	}
+}
+.cards_prew {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 40px;
+    transition: 1s; 
+    text-align: center;
+}
+.cards_prew:hover {
+    transform: scale(1.2);
+}
+.swiper-wrapper.todos {
+    display: flex;
+    justify-content: space-between;
+    max-height: 100vh;
+    margin: auto;
+}
+.todo_imj {
+    width: 96%;
+    border-radius: 14px;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+}
+.add_on_korzina {
+    position: relative;
+    width: 35px;
+    height: 35px;
+    bottom: 12%;
+    left: 78%;
+    border-radius: 50%;
+    border: none;
+    opacity: 60%;
+    cursor: pointer;
+ 
+   
+}
+.add_on_korzina:hover {
+    animation: bounce 1.5s ;
+}
+.add_on_korzina_img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.sales {
+    position: relative;
+    text-align: center;
+    left: 3%;
+    bottom: 20%;
+    font-size: 24px; 
+    width: 58px;
+    border-radius: 14px;
+    font-weight: bold;
+    background-color: rgba($color: orange, $alpha: 0.7);
+}
+.sales:hover {
+    background: rgba(0,0,0,0);
+	color: #000609;
+}
+.Prices {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    bottom: 70px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.fool_prise {
+    text-decoration: line-through;
+    font-size: 18px;
+}
+.sales_prise {
+    font-size: 18px;
+}
+
+// .todo_imj:hover {
+//     transition: all 0.2s linear;
+//     transform: scale(1.3);
+// }
+.fff {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    width: 800px;
+    height: 600px;
+}

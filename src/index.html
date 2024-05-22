@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/index.scss">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="header_background">
+    <div class="header_wrapper">
+        <img class="header_logo" src="./img/logo.svg" alt="wb">
+        <input class="header_text" type="text" placeholder="Поиск...">
+        <button class="header_button color"><p class="text_button">Корзина <p class="number_purchase"></p></p></button>
+    </div>
+</header>
+<main> 
+    <section class="advertising">
+        <div class="swiper-wrapper">
+            <img class="advertising_img" src="https://static-basket-01.wbbasket.ru/vol1/crm-bnrs/bners1/koshelek_3_1440.webp" alt="">
+        </div>
+    </section>
+    <section class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img class="swiper_imj" src="https://static-basket-01.wbbasket.ru/vol1/crm-bnrs/bners1/may_1440_17_05_4.webp" alt=""></div>
+                <div class="swiper-slide"><img class="swiper_imj" src="https://static-basket-01.wbbasket.ru/vol1/crm-bnrs/adsf/1715611668485818594.webp" alt=""></div>
+                <div class="swiper-slide"><img class="swiper_imj" src="https://static-basket-01.wbbasket.ru/vol1/crm-bnrs/bners1/20_1440.webp" alt=""></div>
+                <div class="swiper-slide"><img class="swiper_imj" src="https://static-basket-01.wbbasket.ru/vol1/crm-bnrs/bners1/dacha_1440_1.webp" alt=""></div>
+                <div class="swiper-slide"><img class="swiper_imj" src="https://static-basket-01.wbbasket.ru/vol1/crm-bnrs/bners1/klient_1440.webp" alt=""></div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+    </section>
+    <section class="cards">
+        <h2 class="cards_prew">Хиты продаж</h2>
+        <div class="swiper-wrapper todos"></div>
+        </div>
+    </section>
+    <section class="basket">
+        <div class="top_basket">
+            <p class="name_basket">Содержимое корзины:</p>
+            <button class="delete_all_cards">Очистить корзину</button>
+        </div>
+        <div class="todo_list">
+            <div class="totalPrice"></div>
+        </div>
+    </section>
+</main> 
+</body>
+<script src="./scripts/index.js"></script>
+</html>

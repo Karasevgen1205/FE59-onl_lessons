@@ -1,0 +1,44 @@
+.basket {
+    z-index: 2;
+    opacity: 0;
+    width: 300px;
+    height: 400px;
+    background-color: #ffd2ad;
+    position: relative;
+    left: 33%;
+    border-radius: 14px;
+    top: -777px;
+    left: 1218px;
+    transform: translateY(-40px);
+    pointer-events: none;
+    padding: 15px;
+    transition: all 0.2s ease;
+}
+.basket_opacity {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+}
+.top_basket {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: bold;
+}
+.delete_all_cards {
+    width: 100px;
+    height: 40px;
+    padding: 25px, 25px;
+
+    font-size: 16px;
+    border-radius: 14px;
+    border: none;
+    cursor: pointer;
+}
+
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+}

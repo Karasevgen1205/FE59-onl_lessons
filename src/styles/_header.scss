@@ -1,0 +1,79 @@
+.header_background {
+    background: linear-gradient(0deg, rgba(36, 36, 36, .05) 0, rgba(36, 36, 36, .05) 100%), linear-gradient(97deg, #ed3cca .49%, #df34d2 14.88%, #d02bd9 29.27%, #bf22e1 43.14%, #ae1ae8 57.02%, #9a10f0 70.89%, #8306f7 84.76%, #7c1af8 99.15%);
+
+}
+.header_wrapper {
+    display: flex;  
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+    width: 1440px;
+    height: 150px;
+    
+}
+.header_logo {
+    height: 130%;
+    width: 25%;
+}
+.header_text {
+    height: 60px;
+    width: 55%;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    font-size: 24px;
+
+    font-weight: 700;
+}
+.header_text::placeholder {
+    text-align: center;
+    font-size: 18px;
+}
+.header_button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    width: 10%;
+    border-radius: 12px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-size: 300% 100%;
+    -moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+.header_button:hover {
+    background-position: 100% 0;
+    -moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+.header_button:focus {
+    outline: none;
+}
+.header_button.color {
+    background-image: linear-gradient(to right, #667eea, #764ba2, #6B8DD6, #8E37D7);
+    box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
+}
+.number_purchase {
+    position: relative;
+    bottom: 12px;
+    right: 5px;
+    background-color: orange;
+    border-radius: 50%;
+    font-size: 24px;
+    font-weight: 700;
+    width: 28px;
+    height: 28px;
+ 
+}
+.text_button {
+    font-weight: bold;
+    font-size: 24px;
+    padding-left: 20px;
+    font-weight: 700;
+}
