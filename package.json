@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@ampproject/remapping": "^2.3.0",
+    "@babel/code-frame": "^7.24.6",
+    "@babel/compat-data": "^7.24.6",
+    "live-server": "^1.1.0",
+    "source-map-url": "^0.4.1",
+    "urix": "^0.1.0"
+  }
+}
