@@ -45,8 +45,7 @@ interface IFaculty extends IId {
 //2
 
 
-interface IMovie {
-        id: number;
+interface IMovie extends IId {
         title: string;
         year: number;
         released: string;
