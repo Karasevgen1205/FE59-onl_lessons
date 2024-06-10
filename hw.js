@@ -159,3 +159,60 @@ const films = [
       
       console.log(filterByField(films, 'title', 'Black Widow'));
       console.log(filterByField(films, 'year', 2011));
+
+
+      class FilmManager {
+        constructor(films) {
+          this.films = films;
+        }
+      
+
+        getUniqueGenres() {
+          return [...new Set(this.films.flatMap((film) => film.genre))];
+        }
+      
+
+        getUniqueActors() {
+          return [...new Set(this.films.flatMap((film) => film.actors))];
+        }
+      
+
+        sortByRating() {
+          return this.films.sort((a, b) => b.imdbRating - a.imdbRating);
+        }
+ 
+
+        getFilmDetails() {
+          return this.films.map(({ id, title, released, plot }) => ({ id, title, released, plot }));
+        }
+      
+     
+        filterByYear(year) {
+          return this.films.filter((film) => film.year === year);
+        }
+      
+       
+        filterByTitle(title) {
+          return this.films.filter((film) => film.title.includes(title));
+        }
+      
+        filterByTitleOrPlot(searchTerm) {
+          return this.films.filter((film) => film.title.includes(searchTerm) || film.plot.includes(searchTerm));
+        }
+      
+        filterByField(field, value) {
+          return this.films.filter((film) => film[field] === value);
+        }
+      }
+      
+      const filmManager = new FilmManager(films);
+      
+      console.log('Unique genres:', filmManager.getUniqueGenres());
+      console.log('Unique actors:', filmManager.getUniqueActors());
+      console.log('Films sorted by rating:', filmManager.sortByRating());
+      console.log('Film details:', filmManager.getFilmDetails());
+      console.log('Films released in 2011:', filmManager.filterByYear(2011));
+      console.log('Films with "Harry Potter" in the title:', filmManager.filterByTitle('Harry Potter'));
+      console.log('Films with "Hogwarts" in the title or plot:', filmManager.filterByTitleOrPlot('Hogwarts'));
+      console.log('Films with title "Black Widow":', filmManager.filterByField('title', 'Black Widow'));
+      console.log('Films released in 2009:', filmManager.filterByField('year', 2009));
