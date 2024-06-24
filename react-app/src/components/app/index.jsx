@@ -4,7 +4,12 @@ import { Banner } from "../banner";
 import { ToDos } from "../todos";
 import { Modal } from "../modal";
 import { Posts } from "../posts";
-import styles from "./styles.scss";
+import "./styles.scss";
+import { SignIn } from "../sign-in";
+import { Success } from "../sign-in";
+import { Tryagain } from "../sign-in";
+
+
 
 export const App = () => {
   const [isShowModal, setIsShowModal] = useState(false);
@@ -46,6 +51,9 @@ export const App = () => {
         )}
         {page === "blog" && <Posts />}
         {page === "todos" && <ToDos />}
+        {page === "Signin" && <SignIn setPage={setPage} />}
+        {page === 'Success' && <Success setPage={setPage} />}
+        {page === 'Tryagain' && <Tryagain setPage={setPage} />}
       </section>
       {isShowModal && <Modal setIsShowModal={setIsShowModal} />}
     </React.Fragment>

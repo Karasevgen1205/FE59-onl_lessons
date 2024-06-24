@@ -1,0 +1,25 @@
+.button {
+  border: 0;
+  border-radius: 15px;
+  background-color: #7fffd4;
+  padding: 8px 15px;
+  width: -moz-fit-content;
+  width: fit-content;
+  cursor: pointer;
+  transition: background-color 0.2s linear;
+}
+.button:hover {
+  background-color: #c8ffed;
+}
+.button_pink {
+  background-color: #fca6fb;
+}
+.button_pink:hover {
+  background-color: #facdf9;
+}
+.button_yellow {
+  background-color: #fff458;
+}
+.button_yellow:hover {
+  background-color: #f4f6b3;
+}/*# sourceMappingURL=styles.css.map */

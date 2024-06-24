@@ -1,7 +1,7 @@
 import { Button } from "../button";
 import { ModeButton } from "../mode-button";
 import icon from "./images/icon.svg";
-import styles from "./styles.scss";
+import  "./styles.scss";
 
 export const Header = ({
   setIsShowModal,
@@ -42,6 +42,15 @@ export const Header = ({
                   onClick={() => setPage("todos")}
                 >
                   ToDos
+                </button>
+              </li>
+              <li className="header__item">
+                <button
+                  href="#"
+                  className="header__link"
+                  onClick={() => setPage("Signin")}
+                >
+                  Sign In
                 </button>
               </li>
               <li className="header__item">
