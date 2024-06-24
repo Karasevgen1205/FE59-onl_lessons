@@ -54,8 +54,17 @@ export const Header = ({
                 </button>
               </li>
               <li className="header__item">
+                <button
+                  href="#"
+                  className="header__link"
+                  onClick={() => setPage("SignUp")}
+                >
+                  Sign Up
+                </button>
+              </li>
+              <li className="header__item">
                 <Button
-                  title="Contact Us"
+                  title="Contact us!"
                   isPinkBackgroud={true}
                   setIsShowModal={setIsShowModal}
                 />

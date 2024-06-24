@@ -8,6 +8,7 @@ import "./styles.scss";
 import { SignIn } from "../sign-in";
 import { Success } from "../sign-in";
 import { Tryagain } from "../sign-in";
+import { SignUp } from "../sign-up";
 
 
 
@@ -54,6 +55,7 @@ export const App = () => {
         {page === "Signin" && <SignIn setPage={setPage} />}
         {page === 'Success' && <Success setPage={setPage} />}
         {page === 'Tryagain' && <Tryagain setPage={setPage} />}
+        {page === "SignUp" && <SignUp setPage={setPage} />}
       </section>
       {isShowModal && <Modal setIsShowModal={setIsShowModal} />}
     </React.Fragment>

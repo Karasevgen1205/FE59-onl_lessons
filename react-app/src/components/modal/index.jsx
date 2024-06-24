@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "./styles.scss";
+import  "./styles.scss";
 
 export const Modal = ({ setIsShowModal }) => {
   const [values, setValues] = useState({});
