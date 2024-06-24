@@ -7,6 +7,8 @@ export const postsData = [
     lesson_num: 1,
     title: "Lorem Ipsum is Lorem Ipsum Lorem Ipsum is Lorem Ipsum",
     author: 4,
+    favourite: true,
+    popular: false,
   },
   {
     id: 2,
@@ -16,6 +18,8 @@ export const postsData = [
     lesson_num: 1,
     title: "Lorem Ipsum is Lorem Ipsum Lorem Ipsum is Lorem Ipsum",
     author: 5,
+    favourite: false,
+    popular: false,
   },
   {
     id: 3,
@@ -25,6 +29,8 @@ export const postsData = [
     lesson_num: 1,
     title: "Lorem Ipsum is Lorem Ipsum Lorem Ipsum is Lorem Ipsum",
     author: 3,
+    favourite: true,
+    popular: false,
   },
   {
     id: 4,
@@ -34,6 +40,8 @@ export const postsData = [
     lesson_num: 1,
     title: "Lorem Ipsum is Lorem Ipsum Lorem Ipsum is Lorem Ipsum",
     author: 4,
+    favourite: false,
+    popular: false,
   },
   {
     id: 5,
@@ -43,6 +51,8 @@ export const postsData = [
     lesson_num: 1,
     title: "Lorem Ipsum is Lorem Ipsum Lorem Ipsum is Lorem Ipsum",
     author: 5,
+    favourite: true,
+    popular: true,
   },
   {
     id: 6,
@@ -52,6 +62,8 @@ export const postsData = [
     lesson_num: 1,
     title: "Lorem Ipsum is Lorem Ipsum Lorem Ipsum is Lorem Ipsum",
     author: 3,
+    favourite: true,
+    popular: false,
   },
   {
     id: 7,
@@ -61,6 +73,8 @@ export const postsData = [
     lesson_num: 1,
     title: "Lorem Ipsum is Lorem Ipsum Lorem Ipsum is Lorem Ipsum",
     author: 4,
+    favourite: true,
+    popular: false,
   },
   {
     id: 8,
@@ -70,6 +84,8 @@ export const postsData = [
     lesson_num: 1,
     title: "Lorem Ipsum is Lorem Ipsum Lorem Ipsum is Lorem Ipsum",
     author: 5,
+    favourite: false,
+    popular: true,
   },
   {
     id: 9,
@@ -79,6 +95,8 @@ export const postsData = [
     lesson_num: 1,
     title: "Lorem Ipsum is Lorem Ipsum Lorem Ipsum is Lorem Ipsum",
     author: 3,
+    favourite: true,
+    popular: true,
   },
   {
     id: 10,
@@ -88,6 +106,8 @@ export const postsData = [
     lesson_num: 1,
     title: "Lorem Ipsum is Lorem Ipsum Lorem Ipsum is Lorem Ipsum",
     author: 5,
+    favourite: false,
+    popular: true,
   },
   {
     id: 11,
@@ -97,5 +117,7 @@ export const postsData = [
     lesson_num: 1,
     title: "Lorem Ipsum is Lorem Ipsum Lorem Ipsum is Lorem Ipsum",
     author: 3,
+    favourite: true,
+    popular: true,
   },
 ];

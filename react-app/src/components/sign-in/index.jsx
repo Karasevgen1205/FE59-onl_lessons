@@ -36,7 +36,6 @@ export const SignIn = ({ setPage }) =>{
 
     return(
       <React.Fragment>
-
         <section className="Signin"> 
         <div className="container_signin">
             <button href="#" onClick={() => setPage('home')} className="signin__back_to_home">
