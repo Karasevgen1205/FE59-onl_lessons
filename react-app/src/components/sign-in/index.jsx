@@ -63,7 +63,7 @@ export const SignIn = ({ setPage }) =>{
         <button href="#" className="signin__forgotpass">Forgot Password?</button>
 
         <button href="#" onClick={handleLoginInfo} className="signin__signin">Sign In!</button>
-        <div className="signup">Dont have an account? <button href="#" className="signup__button" onClick={SignUp}>Sign up!</button>
+        <div className="signup">Dont have an account? <button href="#" className="signup__button" onClick={() => setPage('SignUp')}>Sign up!</button>
         </div>
             </div>
         </div>

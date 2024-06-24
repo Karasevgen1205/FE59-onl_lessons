@@ -9,7 +9,7 @@ import { SignIn } from "../sign-in";
 import { Success } from "../sign-in";
 import { Tryagain } from "../sign-in";
 import { SignUp } from "../sign-up";
-
+import { Confirmation } from "../sign-up";
 
 
 export const App = () => {
@@ -56,6 +56,7 @@ export const App = () => {
         {page === 'Success' && <Success setPage={setPage} />}
         {page === 'Tryagain' && <Tryagain setPage={setPage} />}
         {page === "SignUp" && <SignUp setPage={setPage} />}
+        {page === "Confirmation" && <Confirmation setPage={setPage} />}
       </section>
       {isShowModal && <Modal setIsShowModal={setIsShowModal} />}
     </React.Fragment>

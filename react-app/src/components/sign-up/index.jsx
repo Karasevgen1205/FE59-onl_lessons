@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import  "./styles.scss";
 import {Tryagain} from "../sign-in"
-import {Success} from "../sign-in"
+
 
 
 export const SignUp = ({ setPage }) =>{
@@ -27,7 +27,7 @@ export const SignUp = ({ setPage }) =>{
 
     const handleSuccess = () => {
       console.log('signup successful!');
-      setPage('Success');
+      setPage('Confirmation');
   };
 
   const handleTryAgain = () => {
@@ -56,8 +56,8 @@ export const SignUp = ({ setPage }) =>{
         <input 
           type="text"
           className="signin__input"
-          id="signin__email"
-           placeholder="Email"
+          id="signin__name"
+           placeholder="Name"
           onInput={handleChangeName}
         />
             <label htmlFor="signin__email">Email</label>
@@ -87,8 +87,8 @@ export const SignUp = ({ setPage }) =>{
         {/* <button href="#" className="signin__forgotpass">Forgot Password?</button> */}
 
         <button href="#" onClick={handleLoginInfo} className="signin__signin">Sign Up!</button>
-        {/* <div className="signup">Dont have an account? <button href="#" className="signup__button">Sign up!</button>
-        </div> */}
+        <div className="signup">Already have an account? <button href="#" className="signup__button" onClick={() => setPage('Signin')}>Sign in!</button>
+        </div>
             </div>
         </div>
         </section>  
@@ -96,24 +96,23 @@ export const SignUp = ({ setPage }) =>{
     )
 }
 
-// export const Success =({ setPage }) =>{
-//   return(
-//   <section className="Success">
-//   <div className="container_signin">
-//             <button href="#" onClick={() => setPage('home')} className="signin__back_to_home">
-//                 Back to Home
-//             </button>
-//             <h2 className="signin__title">Success</h2>
-//             <div className="signin__wrapper">
-//               <div className="success_title"> Your Sign Up is complete. 
-//                 Have fun!</div>
-//             <button href="#" onClick={() => setPage('home')} className="go_to_home">
-//                 Go to Home
-//             </button>
-//             </div>
-//             </div>
-//     </section> )
-// }
+export const Confirmation =({ setPage }) =>{
+  return(
+  <section className="Confirmation">
+  <div className="container_signin">
+            <button href="#" onClick={() => setPage('home')} className="signin__back_to_home">
+                Back to Home
+            </button>
+            <h2 className="signin__title">Confirm your email!</h2>
+            <div className="signin__wrapper">
+              <div className="success_title"> Confirmation message was sent to your email. Please, check your mailbox.</div>
+            <button href="#" onClick={() => setPage('home')} className="go_to_home">
+                Go to Home
+            </button>
+            </div>
+            </div>
+    </section> )
+}
 
 // export const Tryagain =({ setPage }) =>{
 //   return(
