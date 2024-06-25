@@ -1,5 +1,5 @@
 import React, { useState, memo } from "react";
-import styles from "./styles.scss";
+import "./styles.scss";
 
 // В React мы так НЕ ДЕЛАЕМ!!!!!!!
 // const btn = document.querySelector(".header__button");

@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, createContext } from "react";
 import { Header } from "../header";
 import { Banner } from "../banner";
 import { ToDos } from "../todos";
 import { Modal } from "../modal";
 import { Blog } from "../blog";
-import styles from "./styles.scss";
+import { Game } from "../game/main";
+import { MyContext } from "../hooks/context.hook";
+import "./styles.scss";
 
 export const App = () => {
   const [isShowModal, setIsShowModal] = useState(false);
@@ -37,21 +39,22 @@ export const App = () => {
   }); // то же что и componentDidUpdate;
 
   return (
-    <React.Fragment>
+    <MyContext.Provider value={{ isBlackTheme }}>
       <Header
         setIsShowModal={setIsShowModal}
         setPage={setPage}
         isBlackTheme={isBlackTheme}
         handleChangeTheme={handleChangeTheme}
       />
-      <section className={isBlackTheme ? "black-theme" : ""}>
+      <main className={isBlackTheme ? "black-theme" : ""}>
         {page === "home" && (
           <Banner setIsShowModal={setIsShowModal} isBlackTheme={isBlackTheme} />
         )}
         {page === "blog" && <Blog />}
-        {page === "todos" && <ToDos />}
-      </section>
+        {page === "todos" && <ToDos isBlackTheme={isBlackTheme} />}
+        {page === "game" && <Game />}
+      </main>
       {isShowModal && <Modal setIsShowModal={setIsShowModal} />}
-    </React.Fragment>
+    </MyContext.Provider>
   );
 };

@@ -1,7 +1,7 @@
-import React from "react";
+import React, { createRef } from "react";
 import { Button } from "../button";
 import iamge from "./images/127.jpeg";
-import styles from "./styles.scss";
+import "./styles.scss";
 
 // function nad() {
 //   // без use strict this === window
@@ -18,6 +18,7 @@ export class Banner extends React.Component {
     // console.log("constructor - здесь инициилизируется класс");
     super(props);
     this.state = { isShowImage: true, shouldFetchData: false };
+    this.bannerRef = createRef(null);
     // this.handleClick = this.handleClick.bind(this);
   }
 
@@ -94,6 +95,7 @@ export class Banner extends React.Component {
     return (
       <section
         className={`banner ${this.props.isBlackTheme ? "banner_black" : ""}`}
+        ref={this.bannerRef}
       >
         <div className="container">
           <div className="banner__wrapper">

@@ -1,0 +1,11 @@
+.game {
+  min-height: 200px;
+  padding: 150px 50px;
+  background-color: #3b1b62;
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

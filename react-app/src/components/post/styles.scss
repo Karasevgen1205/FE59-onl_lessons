@@ -79,4 +79,13 @@
       width: 20%;
     }
   }
+
+  &_dark {
+    background-color: rgb(73, 73, 73);
+
+    #{$self}__title,
+    #{$self}__text {
+      color: white;
+    }
+  }
 }

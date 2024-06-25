@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "./styles.scss";
+import "./styles.scss";
 
 export const ToDo = ({ todo, handleChange, handleDelete, handleEdit }) => {
   const [isEdit, setIsEdit] = useState(false);

@@ -1,64 +1,96 @@
-import { useState } from "react";
-import styles from "./styles.scss";
+import { useEffect, useRef, useState } from "react";
+import { countryList } from "./country-list.js";
+import "./styles.scss";
 
 export const Modal = ({ setIsShowModal }) => {
   const [values, setValues] = useState({});
+  const [errors, setErrors] = useState({});
+  const inputNameRef = useRef(null); // {current: null}
+  const inputConfirmPassRef = useRef(null); // {current: null}
+  // console.log(values, errors, inputNameRef);
 
-  const handleChangeEmail = (event) => {
-    // setValues({ ...values, email: event.target.value });
-    setValues((prevState) => ({ ...prevState, email: event.target.value }));
+  useEffect(() => {
+    inputNameRef.current.focus();
+  }, []);
+
+  const handleChangeText = (event, field) => {
+    setValues((prevState) => ({ ...prevState, [field]: event.target.value }));
   };
 
-  const handleChangePass = (event) => {
-    setValues((prevState) => ({ ...prevState, pass: event.target.value }));
-  };
+  // более сложное но произвоительное решение
+  // const handleChangeText = (field) => (event) =>
+  //   setValues((prevState) => ({ ...prevState, [field]: event.target.value }));
 
-  const handleChangeCountry = (event) => {
-    setValues((prevState) => ({ ...prevState, country: event.target.value }));
-  };
+  const handleSave = () => {
+    if (values.pass === values.confirmPass) {
+      // все хорошо, парорли совпали
+      if (errors.confirmPass) {
+        setErrors({});
+      }
 
-  console.log(values);
-  const countryList = [
-    "Беларусь",
-    "Россия",
-    "Украина",
-    "Казахстан",
-    "США",
-    "Канада",
-    "Польша",
-  ];
+      console.log("Отправляем все данные в values на сервер: ", values);
+    } else {
+      setErrors({ confirmPass: "Пароли не совпадают!" });
+      inputConfirmPassRef.current.focus();
+    }
+  };
 
   const handleClick = () => {
     setIsShowModal(false);
   };
 
-  const handleSave = () => {
-    console.log("Отправляем все данные в values на сервер: ", values);
-  };
-
   return (
     <div className="modal">
       <div className="modal__wrapper">
-        <h4 className="modal__title">Sing in now</h4>
+        <h4 className="modal__title">Sing up now</h4>
+        <label htmlFor="modalName">Name</label>
+        <input
+          type="text"
+          className="modal__input"
+          id="modalName"
+          // onInput={handleChangeName}
+          onInput={(event) => handleChangeText(event, "name")}
+          ref={inputNameRef}
+          // onInput={handleChangeText("name")}
+        />
         <label htmlFor="modalEmail">Email</label>
         <input
           type="text"
           className="modal__input"
           id="modalEmail"
-          onInput={handleChangeEmail}
+          // onInput={handleChangeEmail}
+          onInput={(event) => handleChangeText(event, "email")}
+          // onInput={handleChangeText("email")}
         />
         <label htmlFor="modalPass">Password</label>
         <input
-          type="text"
+          type="password"
           className="modal__input"
           id="modalPass"
-          onInput={handleChangePass}
+          // onInput={handleChangePass}
+          onInput={(event) => handleChangeText(event, "pass")}
+          // onInput={handleChangeText("pass")}
         />
+        <label htmlFor="modalConfirmPass">Confirm Password</label>
+        <input
+          type="password"
+          className="modal__input"
+          id="modalConfirmPass"
+          // onInput={handleChangeConfPass}
+          onInput={(event) => handleChangeText(event, "confirmPass")}
+          // onInput={handleChangeText("confirmPass")}
+          ref={inputConfirmPassRef}
+        />
+        {errors.confirmPass && (
+          <p className="modal__error">{errors.confirmPass}</p>
+        )}
         <label htmlFor="modalCountry">Choose your country:</label>
         <select
           className="modal__input"
           id="modalCountry"
-          onChange={handleChangeCountry}
+          // onChange={handleChangeCountry}
+          onChange={(event) => handleChangeText(event, "country")}
+          // onChange={handleChangeText("country")}
         >
           {countryList.map((item, index) => {
             return (

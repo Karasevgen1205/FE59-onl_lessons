@@ -2,9 +2,9 @@ import React, { useEffect, useState, useId, useMemo, useCallback } from "react";
 import { ToDo } from "../todo";
 import { todosData } from "./mock-data.js";
 import { Spinner } from "../spinner";
-import styles from "./styles.scss";
+import "./styles.scss";
 
-export const ToDos = () => {
+export const ToDos = ({ isBlackTheme }) => {
   const [data, setData] = useState(todosData);
   const [isLoading, setIsLoading] = useState(false);
   const [newTodo, setNewTodo] = useState(null);
@@ -164,6 +164,7 @@ export const ToDos = () => {
                   <ToDo
                     key={todo.id}
                     todo={todo}
+                    isBlackTheme={isBlackTheme}
                     handleChange={handleChange}
                     handleDelete={handleDelete}
                     handleEdit={handleEdit}

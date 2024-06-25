@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { postsData } from "./mock-data.js";
 import { PostDetaild } from "../post-details";
 import { Post } from "../post/index.jsx";
-import styles from "./styles.scss";
+import "./styles.scss";
 
 export const Blog = () => {
   const [posts, setPosts] = useState(postsData);

@@ -1,13 +1,19 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { MyContext } from "../hooks/context.hook";
 import likeIcon from "./images/like_icon.png";
 import dislikeIcon from "./images/dislike_icon.png";
 import saveIcon from "./images/save_icon.png";
 import optionsIcon from "./images/options_icon.png";
-import styles from "./styles.scss";
+import "./styles.scss";
 
 export const Post = ({ post, index, size, setCurrentPost }) => {
+  const ctx = useContext(MyContext);
+
   return (
-    <div className={`post post_${size}`} style={{ gridArea: `post-${index}` }}>
+    <div
+      className={`post post_${size} ${ctx.isBlackTheme ? "post_dark" : ""}`}
+      style={{ gridArea: `post-${index}` }}
+    >
       <div className="post__wrapper">
         <div className="post__info">
           <p className="post__date">{post.date}</p>
