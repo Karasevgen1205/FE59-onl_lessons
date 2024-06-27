@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { MyContext } from "../hooks/context.hook";
 import likeIcon from "./images/like_icon.png";
 import dislikeIcon from "./images/dislike_icon.png";
@@ -6,7 +7,7 @@ import saveIcon from "./images/save_icon.png";
 import optionsIcon from "./images/options_icon.png";
 import "./styles.scss";
 
-export const Post = ({ post, index, size, setCurrentPost }) => {
+export const Post = ({ post, index, size }) => {
   const ctx = useContext(MyContext);
 
   return (
@@ -17,14 +18,14 @@ export const Post = ({ post, index, size, setCurrentPost }) => {
       <div className="post__wrapper">
         <div className="post__info">
           <p className="post__date">{post.date}</p>
-          <h3 className="post__title" onClick={() => setCurrentPost(post)}>
+          <Link to={`${post.id}`} className="post__title">
             {post.title}
-          </h3>
+          </Link>
           <p className="post__text">{post.text}</p>
         </div>
-        <div className="post__img" onClick={() => setCurrentPost(post)}>
+        <Link to={`${post.id}`} className="post__img">
           <img src={post.image} alt="" />
-        </div>
+        </Link>
       </div>
       <div className="post__actions">
         <div className="post__likes">

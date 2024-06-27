@@ -1,4 +1,5 @@
 import React, { createRef } from "react";
+import { useParams, Link, useNavigate, useLocation } from "react-router-dom";
 import { Button } from "../button";
 import iamge from "./images/127.jpeg";
 import "./styles.scss";
@@ -8,7 +9,18 @@ import "./styles.scss";
 //   // use strict this === undefined
 // }
 
-export class Banner extends React.Component {
+// это обертка над классовмы компонентом что бы ему передать хуки из реакт роутер дома
+export const Banner = (props) => {
+  const { postId } = useParams();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  return (
+    <View {...props} location={location} navigate={navigate} postId={postId} />
+  );
+};
+
+export class View extends React.Component {
   interval;
   callback = () => {
     // console.log("body click");
@@ -16,7 +28,7 @@ export class Banner extends React.Component {
 
   constructor(props) {
     // console.log("constructor - здесь инициилизируется класс");
-    super(props);
+    super(props); // location, navigate, postId
     this.state = { isShowImage: true, shouldFetchData: false };
     this.bannerRef = createRef(null);
     // this.handleClick = this.handleClick.bind(this);

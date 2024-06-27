@@ -1,11 +1,13 @@
 export const postsData = [
   {
     id: 1,
-    image: "https://placehold.co/600x400",
-    text: "Lorem Ipsum is Lorem Ipsum and Lorem Ipsum is aute mud Lore maiore magna. Lorem Ipsum is Lorem Ipsum, Lorem Ips lorem temp tempus. Lorem IpsumLorem Ipsum is Lorem Ipsum and Lorem Ipsum is aute mud Lore maiore magna. Lorem Ipsum is Lorem Ipsum, Lorem Ips lorem temp tempus. Lorem Ipsum",
+    image:
+      "https://imgproxy.onliner.by/ifzJjJW_T4y1Ytu_X1TMwrzOF3KqkBtzrHMMLBJSgzM/rt:fill/s:1534:740/aHR0cHM6Ly9jb250/ZW50Lm9ubGluZXIu/YnkvbmV3cy9sYXJn/ZS84YzZjODdhMWJj/NWZhNTY0NzYwYjQ0/NzQ3OWEyMGNlZi5q/cGc",
+    text: "Если долго ехать по Октябрьской — одной из главных улиц в Пружанах, — можно наткнуться на прекрасное нечто. Это бык (или все же зубр?), лежащий на капоте кабриолета Alfa Romeo. Некоторые местные относятся к этому муралу со снисходительной усмешкой. Но, по-моему, он просто восхитителен. И, что самое интересное, в нем зарыто достаточное количество пасхалок, чтобы сразу понять, в какой город мы приехали.",
     date: "2021-12-12",
     lesson_num: 1,
-    title: "1 Lorem Ipsum is Lorem Ipsum Lorem Ipsum is Lorem Ipsum",
+    title:
+      "Шеф-повар из Америки, герб как у Alfa Romeo и огромный опен-эйр. Как (не)скромный райцентр готовится к большому рок-фесту",
     favourites: false,
     popular: true,
     author: 4,
@@ -16,7 +18,7 @@ export const postsData = [
     text: "Lorem Ipsum is Lorem Ipsum and Lorem Ipsum is aute mud Lore maiore magna. Lorem Ipsum is Lorem Ipsum, Lorem Ips lorem temp tempus. Lorem IpsumLorem Ipsum is Lorem Ipsum and Lorem Ipsum is aute mud Lore maiore magna. Lorem Ipsum is Lorem Ipsum, Lorem Ips lorem temp tempus. Lorem Ipsum",
     date: "2021-12-12",
     lesson_num: 1,
-    title: "2 Lorem Ipsum is Lorem Ipsum Lorem Ipsum is Lorem Ipsum",
+    title: "В Сморгони сотрудники МЧС спасли из воды обессиленную собаку",
     favourites: true,
     popular: false,
     author: 5,
@@ -27,7 +29,8 @@ export const postsData = [
     text: "Lorem Ipsum is Lorem Ipsum and Lorem Ipsum is aute mud Lore maiore magna. Lorem Ipsum is Lorem Ipsum, Lorem Ips lorem temp tempus. Lorem IpsumLorem Ipsum is Lorem Ipsum and Lorem Ipsum is aute mud Lore maiore magna. Lorem Ipsum is Lorem Ipsum, Lorem Ips lorem temp tempus. Lorem Ipsum",
     date: "2021-12-12",
     lesson_num: 1,
-    title: "3 Lorem Ipsum is Lorem Ipsum Lorem Ipsum is Lorem Ipsum",
+    title:
+      "«Подружка», «Мила», «Остров чистоты»: чем отличаются и что по ценам?",
     favourites: false,
     popular: true,
     author: 3,
@@ -38,7 +41,7 @@ export const postsData = [
     text: "Lorem Ipsum is Lorem Ipsum and Lorem Ipsum is aute mud Lore maiore magna. Lorem Ipsum is Lorem Ipsum, Lorem Ips lorem temp tempus. Lorem IpsumLorem Ipsum is Lorem Ipsum and Lorem Ipsum is aute mud Lore maiore magna. Lorem Ipsum is Lorem Ipsum, Lorem Ips lorem temp tempus. Lorem Ipsum",
     date: "2021-12-12",
     lesson_num: 1,
-    title: "4 Lorem Ipsum is Lorem Ipsum Lorem Ipsum is Lorem Ipsum",
+    title: "Был Geely, стал Renault. Monjaro будут продавать под другой маркой",
     favourites: true,
     popular: false,
     author: 4,
@@ -46,10 +49,11 @@ export const postsData = [
   {
     id: 5,
     image: "https://placehold.co/400x400",
-    text: "Lorem Ipsum is Lorem Ipsum and Lorem Ipsum is aute mud Lore maiore magna. Lorem Ipsum is Lorem Ipsum, Lorem Ips lorem temp tempus. Lorem IpsumLorem Ipsum is Lorem Ipsum and Lorem Ipsum is aute mud Lore maiore magna. Lorem Ipsum is Lorem Ipsum, Lorem Ips lorem temp tempus. Lorem Ipsum",
+    text: "Любые нововведения вызывают массу вопросов. Для того чтобы ответить на них, «транспортники» и налоговая провели встречу с представителями служб такси. Выяснилось, что некоторые перевозчики и водители не знают даже базовых правил, поэтому на мероприятии обсуждались и давнишние нормы. Мы собрали в один текст самые острые и волнующие вопросы, прозвучавшие там.",
     date: "2021-12-12",
     lesson_num: 1,
-    title: "5 Lorem Ipsum is Lorem Ipsum Lorem Ipsum is Lorem Ipsum",
+    title:
+      "Таксист не сможет использовать автомобиль в личных целях и хранить его у себя во дворе? До введения нового реестра осталось полгода, но вопросов еще много",
     favourites: true,
     popular: false,
     author: 5,
@@ -57,10 +61,11 @@ export const postsData = [
   {
     id: 6,
     image: "https://placehold.co/100x100",
-    text: "Lorem Ipsum is Lorem Ipsum and Lorem Ipsum is aute mud Lore maiore magna. Lorem Ipsum is Lorem Ipsum, Lorem Ips lorem temp tempus. Lorem IpsumLorem Ipsum is Lorem Ipsum and Lorem Ipsum is aute mud Lore maiore magna. Lorem Ipsum is Lorem Ipsum, Lorem Ips lorem temp tempus. Lorem Ipsum",
+    text: "Лето — сезон, когда белорусы чаще обычного выезжают за пределы страны. Оставаться без связи в дороге (как в личной, так и тем более в деловой поездке) сегодня как минимум некомфортно. Скорее всего, обойтись лишь офлайн-сервисами ну удастся. Недавно мы побывали в Милане и, кроме отельного Wi-Fi, заполучили мобильную связь с интернетом, звонками, СМС-сообщениями за относительно доступные деньги. Рассказываем о тонкостях.",
     date: "2021-12-12",
     lesson_num: 1,
-    title: "6 Lorem Ipsum is Lorem Ipsum Lorem Ipsum is Lorem Ipsum",
+    title:
+      "Личный опыт: как получить быстрый 5G-интернет в путешествии и не переплатить?",
     favourites: true,
     popular: true,
     author: 3,
@@ -68,10 +73,10 @@ export const postsData = [
   {
     id: 7,
     image: "https://placehold.co/100x100",
-    text: "Lorem Ipsum is Lorem Ipsum and Lorem Ipsum is aute mud Lore maiore magna. Lorem Ipsum is Lorem Ipsum, Lorem Ips lorem temp tempus. Lorem IpsumLorem Ipsum is Lorem Ipsum and Lorem Ipsum is aute mud Lore maiore magna. Lorem Ipsum is Lorem Ipsum, Lorem Ips lorem temp tempus. Lorem Ipsum",
+    text: "NASA провело исследование образцов астероида Бенну, которые прибыли на Землю силами миссии OSIRIS-REx. Если коротко, астероид мог образоваться в недрах водного мира, сообщает Space.",
     date: "2021-12-12",
     lesson_num: 1,
-    title: "7 Lorem Ipsum is Lorem Ipsum Lorem Ipsum is Lorem Ipsum",
+    title: "Астероид Бенну образовался в древнем океаническом мире",
     favourites: true,
     popular: true,
     author: 4,
@@ -79,10 +84,11 @@ export const postsData = [
   {
     id: 8,
     image: "https://placehold.co/100x100",
-    text: "Lorem Ipsum is Lorem Ipsum and Lorem Ipsum is aute mud Lore maiore magna. Lorem Ipsum is Lorem Ipsum, Lorem Ips lorem temp tempus. Lorem IpsumLorem Ipsum is Lorem Ipsum and Lorem Ipsum is aute mud Lore maiore magna. Lorem Ipsum is Lorem Ipsum, Lorem Ips lorem temp tempus. Lorem Ipsum",
+    text: "Английский квартал — уникальная застройка. Он прописался в столичном «спальнике» и внес в окружающий его панельный квартал особую изюминку. Мы полюбовались мапидовскими панельками и даже заглянули на закрытый двор, спрятанный от глаз прохожих. Забегая вперед, отметим: этот комплекс совместил в себе два разных мира, объединенных сквозным подъездом.",
     date: "2021-12-12",
     lesson_num: 1,
-    title: "8 Lorem Ipsum is Lorem Ipsum Lorem Ipsum is Lorem Ipsum",
+    title:
+      "Отвоевали дома у ЖЭСа, поставили забор и дразнят соседей из близлежащих панелек. Как поживает Английский квартал в белорусском «‎спальнике»?",
     favourites: true,
     popular: true,
     author: 5,
@@ -90,10 +96,10 @@ export const postsData = [
   {
     id: 9,
     image: "https://placehold.co/100x100",
-    text: "Lorem Ipsum is Lorem Ipsum and Lorem Ipsum is aute mud Lore maiore magna. Lorem Ipsum is Lorem Ipsum, Lorem Ips lorem temp tempus. Lorem IpsumLorem Ipsum is Lorem Ipsum and Lorem Ipsum is aute mud Lore maiore magna. Lorem Ipsum is Lorem Ipsum, Lorem Ips lorem temp tempus. Lorem Ipsum",
+    text: "На форуме вновь споры о шумных соседях. На этот раз вопросы вызвало сверление стен в выходной день — кто-то решил повесить телевизор. «Вешать телевизор в выходные дни с 7 до 23 часов можно и не противоречит закону. Неудобно для соседей, накладно, но законно», — считают на форуме. Почему? Потому что это «не перепланировка, не переустройство и не реконструкция». А вы как считаете?",
     date: "2021-12-12",
     lesson_num: 1,
-    title: "9 Lorem Ipsum is Lorem Ipsum Lorem Ipsum is Lorem Ipsum",
+    title: "Можно ли по выходным сверлить стены? Некоторые считают, что можно",
     favourites: false,
     popular: false,
     author: 3,

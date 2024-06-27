@@ -1,18 +1,13 @@
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "../button";
 import { ModeButton } from "../mode-button";
 import icon from "./images/icon.svg";
 import "./styles.scss";
 
-export const Header = ({
-  setIsShowModal,
-  setPage,
-  isBlackTheme,
-  handleChangeTheme,
-}) => {
+export const Header = ({ setIsShowModal, isBlackTheme, handleChangeTheme }) => {
   const header = useRef(null); // не null, а {current: null};
 
-  // const header = document.querySelector(".header");
   return (
     <header
       className={`header ${isBlackTheme ? "header_black" : ""}`}
@@ -20,49 +15,36 @@ export const Header = ({
     >
       <div className="container">
         <div className="header__wrapper">
-          <div className="header__log">
+          <Link to="/" className="header__log">
             <img src={icon} alt="" />
-          </div>
+          </Link>
           <nav className="header__nav">
             <ul className="header__list">
               <li className="header__item">
-                <button
-                  className="header__link"
-                  onClick={() => setPage("home")}
-                >
+                <Link to="/" className="header__link">
                   Home
-                </button>
+                </Link>
               </li>
               <li className="header__item">
-                <button
-                  className="header__link"
-                  onClick={() => setPage("blog")}
-                >
+                <Link to="blog" className="header__link">
                   Blog
-                </button>
+                </Link>
               </li>
               <li className="header__item">
-                <button
-                  className="header__link"
-                  onClick={() => setPage("todos")}
-                >
+                <Link to="todos" className="header__link">
                   ToDos
-                </button>
+                </Link>
               </li>
               <li className="header__item">
-                <button
-                  className="header__link"
-                  onClick={() => setPage("game")}
-                >
+                <Link to="game" className="header__link">
                   Game
-                </button>
+                </Link>
               </li>
               <li className="header__item">
                 <Button
                   title="Contact Us"
                   isPinkBackgroud={true}
                   setIsShowModal={setIsShowModal}
-                  // headerRef={header.current}
                 />
               </li>
               <li className="header__item">

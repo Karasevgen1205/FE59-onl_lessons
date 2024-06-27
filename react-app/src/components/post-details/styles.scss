@@ -1,0 +1,24 @@
+.post-detail {
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
+
+  &__go-back {
+    align-self: flex-start;
+    margin-left: 10%;
+    margin-bottom: 25px;
+  }
+
+  &__img {
+    width: 80%;
+
+    img {
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+}
