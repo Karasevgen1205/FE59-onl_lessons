@@ -24,5 +24,40 @@ li {
 
 .black-theme {
   background-color: #242424;
-  min-height: calc(100vh - 62px);
+  height: 1000vh;
+  color: #aeaeae;
+  
+  .todo__wrapper{
+    background-color: rgb(49, 143, 143);
+    border: 1px solid gray;
+    border-radius: 15px;
+  }
+  .posts__nav-btn{
+    outline: none;
+    background-color: inherit;
+    color: inherit;
+    font-weight: 600;
+    display: flex;
+    width: 20%;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    transform: 0.3s;
+  }
+  .posts__nav-btn:hover {
+    border-bottom: 2px #aeaeae solid;
+  }
+  .posts__nav-btn_active{
+    border-bottom: 2px #aeaeae solid;
+  }
+  
+  .signin__forgotpass{
+    color: #ffffff;
+  }
+  .signin__back_to_home {
+    color: #ffffff;
+  }
+  .back_to_posts{
+    color: #ffffff;
+  }
 }

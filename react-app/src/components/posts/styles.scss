@@ -1,5 +1,5 @@
 .posts {
-  margin-top: 35px;
+  padding-top: 35px;
 
   &__title {
     margin-bottom: 20px;
@@ -28,8 +28,7 @@
  
   }
 
-
-.posts_nav{
+.posts__nav{
   display: flex;
   flex-wrap: wrap;
   width: 100%;
@@ -37,6 +36,7 @@
   flex-direction: row;
   justify-content: flex-start;
   margin-bottom: 20px;
+  
   &-btn{
     border: none;
     outline: none;
