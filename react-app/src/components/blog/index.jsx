@@ -1,33 +1,53 @@
 import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate, useLocation } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addPostsAction, changeTabAction } from "../../actions";
+import { getPost, getPosts, getTab } from "../../selectors";
 import { postsData } from "./mock-data.js";
 import { PostPreview } from "../post-preview";
 import { Post } from "../post/index.jsx";
+import { Spinner } from "../spinner";
 import "./styles.scss";
 
 export const BlogPage = () => {
   const { category } = useParams(); //{category: "popular"}
-  const [posts, setPosts] = useState(postsData);
-  const [filterValue, setFilterValue] = useState(category);
-  const [searchValue, setSearchValue] = useState("");
   const navigate = useNavigate();
-  const post = useSelector((state) => state.post);
+  const dispatch = useDispatch();
+  const [searchValue, setSearchValue] = useState("");
+  const post = useSelector(getPost);
+  const posts = useSelector(getPosts);
+  const filterValue = useSelector(getTab);
+
+  useEffect(() => {
+    dispatch(changeTabAction(category));
+
+    fetch("https://studapi.teachmeskills.by/blog/posts/?limit=11")
+      .then((response) => response.json())
+      .then(({ results }) => {
+        dispatch(addPostsAction(postsData));
+        // dispatch(addPostsAction(results));
+      })
+      .catch((e) => console.log(e));
+  }, []);
 
   const isAll = filterValue === "all";
   const isFavourites = filterValue === "favourites";
   const isPopular = filterValue === "popular";
 
-  const handleClickAll = (path) => {
+  const handleClickAll = (category) => {
     return () => {
-      setFilterValue(path);
-      navigate(`/blog/${path}`);
+      dispatch(changeTabAction(category));
+      navigate(`/blog/${category}`);
     };
   };
 
   const handleSearch = (e) => {
     setSearchValue(e.target.value.toLowerCase());
   };
+
+  if (!posts) {
+    return <Spinner />;
+  }
 
   return (
     <section className="posts">

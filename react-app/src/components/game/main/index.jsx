@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Board } from "../board";
+import { Info } from "../info";
 import { calcWinner } from "../helper";
 import "./styles.scss";
 
@@ -9,6 +10,11 @@ export const Game = () => {
   ]);
   const [stepNumber, setStepNumber] = useState(0);
   const [xIsNext, setXIsNext] = useState(true);
+  const currentInfo = history[stepNumber];
+  const winner = calcWinner(currentInfo.squares);
+  const status = winner
+    ? `Winner: ${xIsNext ? "O" : "X"}`
+    : `Next player: ${xIsNext ? "X" : "O"}`;
 
   const handleClick = (id) => {
     const newHistory = history.slice(0, stepNumber + 1);
@@ -27,6 +33,11 @@ export const Game = () => {
     setXIsNext((prevState) => !prevState);
   };
 
+  const jumpTo = (index) => {
+    setStepNumber(index);
+    setXIsNext(index % 2 === 0);
+  };
+
   return (
     <section className="game">
       <div className="container">
@@ -35,6 +46,7 @@ export const Game = () => {
             squares={history[stepNumber].squares}
             handleClick={handleClick}
           />
+          <Info status={status} history={history} jumpTo={jumpTo} />
         </div>
       </div>
     </section>

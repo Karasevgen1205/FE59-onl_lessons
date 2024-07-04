@@ -11,6 +11,8 @@ export const postsData = [
     favourites: false,
     popular: true,
     author: 4,
+    like: false,
+    dislike: false,
   },
   {
     id: 2,
@@ -22,6 +24,8 @@ export const postsData = [
     favourites: true,
     popular: false,
     author: 5,
+    like: false,
+    dislike: false,
   },
   {
     id: 3,
@@ -34,6 +38,8 @@ export const postsData = [
     favourites: false,
     popular: true,
     author: 3,
+    like: false,
+    dislike: false,
   },
   {
     id: 4,
@@ -45,6 +51,8 @@ export const postsData = [
     favourites: true,
     popular: false,
     author: 4,
+    like: false,
+    dislike: false,
   },
   {
     id: 5,
@@ -57,6 +65,8 @@ export const postsData = [
     favourites: true,
     popular: false,
     author: 5,
+    like: false,
+    dislike: false,
   },
   {
     id: 6,
@@ -69,6 +79,8 @@ export const postsData = [
     favourites: true,
     popular: true,
     author: 3,
+    like: false,
+    dislike: false,
   },
   {
     id: 7,
@@ -80,6 +92,8 @@ export const postsData = [
     favourites: true,
     popular: true,
     author: 4,
+    like: false,
+    dislike: false,
   },
   {
     id: 8,
@@ -92,6 +106,8 @@ export const postsData = [
     favourites: true,
     popular: true,
     author: 5,
+    like: false,
+    dislike: false,
   },
   {
     id: 9,
@@ -103,6 +119,8 @@ export const postsData = [
     favourites: false,
     popular: false,
     author: 3,
+    like: false,
+    dislike: false,
   },
   {
     id: 10,
@@ -114,6 +132,8 @@ export const postsData = [
     favourites: false,
     popular: false,
     author: 5,
+    like: false,
+    dislike: false,
   },
   {
     id: 11,
@@ -125,5 +145,7 @@ export const postsData = [
     favourites: false,
     popular: false,
     author: 3,
+    like: false,
+    dislike: false,
   },
 ];

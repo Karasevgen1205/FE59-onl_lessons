@@ -1,10 +1,14 @@
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { ADD_POST_ACTION } from "../../actions";
+import {
+  addPostAction,
+  changeLikeAction,
+  changeDislikeAction,
+} from "../../actions";
 import { MyContext } from "../hooks/context.hook";
-import likeIcon from "./images/like_icon.png";
-import dislikeIcon from "./images/dislike_icon.png";
+import likeIcon from "./images/like_icon.svg";
+import dislikeIcon from "./images/dislike_icon.svg";
 import saveIcon from "./images/save_icon.png";
 import optionsIcon from "./images/options_icon.png";
 import "./styles.scss";
@@ -14,7 +18,15 @@ export const Post = ({ post, index, size }) => {
   const dispatch = useDispatch();
 
   const handleClickOptions = () => {
-    dispatch(ADD_POST_ACTION(post));
+    dispatch(addPostAction(post));
+  };
+
+  const handleClickLike = () => {
+    dispatch(changeLikeAction(post.id));
+  };
+
+  const handleClickDislike = () => {
+    dispatch(changeDislikeAction(post.id));
   };
 
   return (
@@ -36,8 +48,18 @@ export const Post = ({ post, index, size }) => {
       </div>
       <div className="post__actions">
         <div className="post__likes">
-          <img src={likeIcon} alt="Like" className="post__icon" />
-          <img src={dislikeIcon} alt="Dislike" className="post__icon" />
+          <img
+            src={likeIcon}
+            alt="Like"
+            className={`post__icon ${post.like ? "post__icon_active" : ""}`}
+            onClick={handleClickLike}
+          />
+          <img
+            src={dislikeIcon}
+            alt="Dislike"
+            className={`post__icon ${post.dislike ? "post__icon_active" : ""}`}
+            onClick={handleClickDislike}
+          />
         </div>
         <div className="post__options">
           <img src={saveIcon} alt="Save" className="post__icon" />
