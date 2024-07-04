@@ -1,10 +1,11 @@
 import React, { useState, useEffect, createContext } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { Header } from "../header";
-import { Banner } from "../banner";
+import { MainPage } from "../main-page";
 import { ToDos } from "../todos";
 import { Modal } from "../modal";
-import { Blog } from "../blog";
+import { BlogPage } from "../blog";
 import { PostDetaild } from "../post-details";
 import { NotFound } from "../not-found";
 import { Game } from "../game/main";
@@ -13,11 +14,7 @@ import "./styles.scss";
 
 export const App = () => {
   const [isShowModal, setIsShowModal] = useState(false);
-  const [isBlackTheme, setIsBlackTheme] = useState(false);
-
-  const handleChangeTheme = () => {
-    setIsBlackTheme((prevStat) => !prevStat);
-  };
+  const isBlackTheme = useSelector((state) => state.isBlackTheme);
 
   // useEffect(() => {
   //   console.log("Запрос на сервер");
@@ -43,28 +40,16 @@ export const App = () => {
   return (
     <BrowserRouter>
       <MyContext.Provider value={{ isBlackTheme }}>
-        <Header
-          setIsShowModal={setIsShowModal}
-          isBlackTheme={isBlackTheme}
-          handleChangeTheme={handleChangeTheme}
-        />
+        <Header setIsShowModal={setIsShowModal} />
         <main className={isBlackTheme ? "black-theme" : ""}>
           <Routes>
             <Route
               path="/"
-              element={
-                <Banner
-                  setIsShowModal={setIsShowModal}
-                  isBlackTheme={isBlackTheme}
-                />
-              }
+              element={<MainPage setIsShowModal={setIsShowModal} />}
             />
-            <Route path="blog" element={<Blog />} />
-            <Route path="/blog/:postId" element={<PostDetaild />} />
-            <Route
-              path="todos"
-              element={<ToDos isBlackTheme={isBlackTheme} />}
-            />
+            <Route path="/blog/:category" element={<BlogPage />} />
+            <Route path="/blog/:category/:postId" element={<PostDetaild />} />
+            <Route path="todos" element={<ToDos />} />
             <Route path="game" element={<Game />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

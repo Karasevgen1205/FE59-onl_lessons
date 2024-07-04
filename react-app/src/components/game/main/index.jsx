@@ -9,7 +9,6 @@ export const Game = () => {
   ]);
   const [stepNumber, setStepNumber] = useState(0);
   const [xIsNext, setXIsNext] = useState(true);
-  console.log(history);
 
   const handleClick = (id) => {
     const newHistory = history.slice(0, stepNumber + 1);

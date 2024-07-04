@@ -1,5 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { ADD_POST_ACTION } from "../../actions";
 import { MyContext } from "../hooks/context.hook";
 import likeIcon from "./images/like_icon.png";
 import dislikeIcon from "./images/dislike_icon.png";
@@ -9,6 +11,11 @@ import "./styles.scss";
 
 export const Post = ({ post, index, size }) => {
   const ctx = useContext(MyContext);
+  const dispatch = useDispatch();
+
+  const handleClickOptions = () => {
+    dispatch(ADD_POST_ACTION(post));
+  };
 
   return (
     <div
@@ -34,7 +41,12 @@ export const Post = ({ post, index, size }) => {
         </div>
         <div className="post__options">
           <img src={saveIcon} alt="Save" className="post__icon" />
-          <img src={optionsIcon} alt="Options" className="post__icon" />
+          <img
+            src={optionsIcon}
+            alt="Options"
+            className="post__icon"
+            onClick={handleClickOptions}
+          />
         </div>
       </div>
     </div>

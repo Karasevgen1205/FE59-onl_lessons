@@ -1,5 +1,5 @@
 import React, { createRef } from "react";
-import { useParams, Link, useNavigate, useLocation } from "react-router-dom";
+
 import { Button } from "../button";
 import iamge from "./images/127.jpeg";
 import "./styles.scss";
@@ -9,18 +9,7 @@ import "./styles.scss";
 //   // use strict this === undefined
 // }
 
-// это обертка над классовмы компонентом что бы ему передать хуки из реакт роутер дома
-export const Banner = (props) => {
-  const { postId } = useParams();
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  return (
-    <View {...props} location={location} navigate={navigate} postId={postId} />
-  );
-};
-
-export class View extends React.Component {
+export class Banner extends React.Component {
   interval;
   callback = () => {
     // console.log("body click");

@@ -1,12 +1,14 @@
 import { useRef } from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { Button } from "../button";
 import { ModeButton } from "../mode-button";
 import icon from "./images/icon.svg";
 import "./styles.scss";
 
-export const Header = ({ setIsShowModal, isBlackTheme, handleChangeTheme }) => {
+export const Header = ({ setIsShowModal }) => {
   const header = useRef(null); // не null, а {current: null};
+  const isBlackTheme = useSelector((state) => state.isBlackTheme);
 
   return (
     <header
@@ -26,7 +28,7 @@ export const Header = ({ setIsShowModal, isBlackTheme, handleChangeTheme }) => {
                 </Link>
               </li>
               <li className="header__item">
-                <Link to="blog" className="header__link">
+                <Link to="blog/all" className="header__link">
                   Blog
                 </Link>
               </li>
@@ -48,10 +50,7 @@ export const Header = ({ setIsShowModal, isBlackTheme, handleChangeTheme }) => {
                 />
               </li>
               <li className="header__item">
-                <ModeButton
-                  isBlackTheme={isBlackTheme}
-                  handleChangeTheme={handleChangeTheme}
-                />
+                <ModeButton />
               </li>
             </ul>
           </nav>

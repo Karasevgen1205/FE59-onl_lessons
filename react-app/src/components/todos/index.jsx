@@ -1,14 +1,16 @@
 import React, { useEffect, useState, useId, useMemo, useCallback } from "react";
+import { useSelector } from "react-redux";
 import { ToDo } from "../todo";
 import { todosData } from "./mock-data.js";
 import { Spinner } from "../spinner";
 import "./styles.scss";
 
-export const ToDos = ({ isBlackTheme }) => {
+export const ToDos = () => {
   const [data, setData] = useState(todosData);
   const [isLoading, setIsLoading] = useState(false);
   const [newTodo, setNewTodo] = useState(null);
   const [isShowCompleted, setIsShowCompleted] = useState(false);
+  const isBlackTheme = useSelector((state) => state.isBlackTheme);
 
   // const testEx_1 = useMemo(() => {
   //   return [1, 2, 3].map((item) => {
