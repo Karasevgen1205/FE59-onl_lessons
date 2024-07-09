@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addPostsAction, changeTabAction } from "../../actions";
+import {
+  addPostsAction,
+  changeTabAction,
+  REQUEST_POSTS_ACTION,
+  addPostsMiddlewareAction,
+} from "../../actions";
 import { getPost, getPosts, getTab } from "../../selectors";
 import { postsData } from "./mock-data.js";
 import { PostPreview } from "../post-preview";
@@ -20,14 +25,7 @@ export const BlogPage = () => {
 
   useEffect(() => {
     dispatch(changeTabAction(category));
-
-    fetch("https://studapi.teachmeskills.by/blog/posts/?limit=11")
-      .then((response) => response.json())
-      .then(({ results }) => {
-        dispatch(addPostsAction(postsData));
-        // dispatch(addPostsAction(results));
-      })
-      .catch((e) => console.log(e));
+    dispatch(addPostsMiddlewareAction());
   }, []);
 
   const isAll = filterValue === "all";
@@ -45,7 +43,7 @@ export const BlogPage = () => {
     setSearchValue(e.target.value.toLowerCase());
   };
 
-  if (!posts) {
+  if (posts.loading || !posts.loaded) {
     return <Spinner />;
   }
 
@@ -93,7 +91,7 @@ export const BlogPage = () => {
             isFavourites || isPopular ? "posts__wrapper_flex" : ""
           }`}
         >
-          {posts
+          {posts.content
             .reduce((result, post) => {
               // ... оствим на ДЗ
               // ...ваш код

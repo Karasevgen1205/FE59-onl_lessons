@@ -7,3 +7,5 @@ export const countryList = [
   "Канада",
   "Польша",
 ];
+
+export const groupList = new Array(9).fill(null).map((_, i) => ++i);
