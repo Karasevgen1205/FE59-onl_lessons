@@ -50,6 +50,7 @@ export const App = () => {
             <Route path="/blog/:category" element={<BlogPage />} />
             <Route path="/blog/:category/:postId" element={<PostDetaild />} />
             <Route path="todos" element={<ToDos />} />
+            <Route path="favorites" element={<ToDos />} />
             <Route path="game" element={<Game />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

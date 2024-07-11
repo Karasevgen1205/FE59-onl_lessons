@@ -55,14 +55,16 @@ export const signUpMiddlewareAction = ({ name, email, pass, group }) => {
 
     const URL = "https://studapi.teachmeskills.by/auth/users/";
 
+    const data = {
+      username: name,
+      email,
+      password: pass,
+      course_group: group,
+    };
+
     fetch(URL, {
       method: "POST",
-      body: JSON.stringify({
-        username: name,
-        email,
-        password: pass,
-        course_group: group,
-      }),
+      body: JSON.stringify(data),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
       },

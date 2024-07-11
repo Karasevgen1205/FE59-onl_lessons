@@ -86,7 +86,7 @@ export const reducer = (state = initialState, action) => {
     case CHANGE_LIKE:
       return {
         ...state,
-        posts: state.posts.map((post) => {
+        posts: state.posts.content.map((post) => {
           return post.id === action.id
             ? { ...post, like: !post.like, dislike: false }
             : post;
@@ -95,7 +95,7 @@ export const reducer = (state = initialState, action) => {
     case CHANGE_DISLIKE:
       return {
         ...state,
-        posts: state.posts.map((post) => {
+        posts: state.posts.content.map((post) => {
           return post.id === action.id
             ? { ...post, dislike: !post.dislike, like: false }
             : post;
