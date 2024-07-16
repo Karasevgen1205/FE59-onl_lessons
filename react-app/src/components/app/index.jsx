@@ -9,6 +9,7 @@ import { BlogPage } from "../blog";
 import { PostDetaild } from "../post-details";
 import { NotFound } from "../not-found";
 import { Game } from "../game/main";
+import { ActivationEmailPage } from "../activation-email";
 import { MyContext } from "../hooks/context.hook";
 import "./styles.scss";
 
@@ -51,6 +52,10 @@ export const App = () => {
             <Route path="/blog/:category/:postId" element={<PostDetaild />} />
             <Route path="todos" element={<ToDos />} />
             <Route path="favorites" element={<ToDos />} />
+            <Route
+              path="/activate/:uid/:token"
+              element={<ActivationEmailPage />}
+            />
             <Route path="game" element={<Game />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

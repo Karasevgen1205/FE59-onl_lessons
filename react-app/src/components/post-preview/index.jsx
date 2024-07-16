@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
-import { REMOVE_POST_ACTION } from "../../actions";
+import { REMOVE_POST_ACTION } from "../../store/actions";
 import likeIcon from "../post/images/like_icon.svg";
 import dislikeIcon from "../post/images/dislike_icon.svg";
 import saveIcon from "../post/images/save_icon.png";

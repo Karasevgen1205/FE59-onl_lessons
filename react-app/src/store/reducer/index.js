@@ -11,6 +11,7 @@ import {
   REQUEST_POSTS,
   POST_USER_DATA,
   RECEIVED_USER_DATA,
+  RECEIVED_TOKEN,
 } from "../actions";
 
 const initialState = {
@@ -30,6 +31,7 @@ const initialState = {
     loaded: false,
     errors: {},
   },
+  token: null,
 };
 
 // const action = {
@@ -37,6 +39,7 @@ const initialState = {
 // };
 
 export const reducer = (state = initialState, action) => {
+  console.log(state);
   switch (action.type) {
     case INCREMENT:
       return {
@@ -127,6 +130,11 @@ export const reducer = (state = initialState, action) => {
           loaded: true,
           errors: isError ? action.user : {},
         },
+      };
+    case RECEIVED_TOKEN:
+      return {
+        ...state,
+        token: action.payload,
       };
     default:
       return state;

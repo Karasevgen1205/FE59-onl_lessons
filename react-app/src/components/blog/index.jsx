@@ -5,9 +5,9 @@ import {
   addPostsAction,
   changeTabAction,
   REQUEST_POSTS_ACTION,
-  addPostsMiddlewareAction,
-} from "../../actions";
-import { getPost, getPosts, getTab } from "../../selectors";
+  getPostsMiddlewareAction,
+} from "../../store/actions";
+import { getPost, getPosts, getTab } from "../../store/selectors/index.js";
 import { postsData } from "./mock-data.js";
 import { PostPreview } from "../post-preview";
 import { Post } from "../post/index.jsx";
@@ -25,7 +25,7 @@ export const BlogPage = () => {
 
   useEffect(() => {
     dispatch(changeTabAction(category));
-    dispatch(addPostsMiddlewareAction());
+    dispatch(getPostsMiddlewareAction());
   }, []);
 
   const isAll = filterValue === "all";

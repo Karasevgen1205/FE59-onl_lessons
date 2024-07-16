@@ -1,6 +1,6 @@
 import { useParams, Link, useNavigate, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { INCREMENT_ACTION, DECREMENT_ACTION } from "../../actions";
+import { INCREMENT_ACTION, DECREMENT_ACTION } from "../../store/actions";
 import { Banner } from "../banner";
 
 // это обертка над классовмы компонентом что бы ему передать хуки из реакт роутер дома

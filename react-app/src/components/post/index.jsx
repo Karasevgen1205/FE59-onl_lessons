@@ -5,7 +5,7 @@ import {
   addPostAction,
   changeLikeAction,
   changeDislikeAction,
-} from "../../actions";
+} from "../../store/actions";
 import { MyContext } from "../hooks/context.hook";
 import likeIcon from "./images/like_icon.svg";
 import dislikeIcon from "./images/dislike_icon.svg";

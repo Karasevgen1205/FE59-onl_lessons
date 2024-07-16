@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useParams, Link, useNavigate, useLocation } from "react-router-dom";
 import { postsData } from "../blog/mock-data";
 import { Spinner } from "../spinner";
@@ -9,8 +10,11 @@ export const PostDetaild = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [post, setPost] = useState(null);
+  // const post = useSelector(state => state.post);
 
   useEffect(() => {
+    // dispatch(getPostMiddlewareAction(postId));
+
     console.log("useLocation", location);
     console.log("window.location", window.location);
 

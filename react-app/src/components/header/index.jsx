@@ -1,14 +1,22 @@
 import { useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { getUserInfoMiddlewareAction } from "../../store/actions";
 import { Button } from "../button";
 import { ModeButton } from "../mode-button";
 import icon from "./images/icon.svg";
+import person from "./images/person.svg";
 import "./styles.scss";
 
 export const Header = ({ setIsShowModal }) => {
   const header = useRef(null); // не null, а {current: null};
   const isBlackTheme = useSelector((state) => state.isBlackTheme);
+  const userToken = useSelector((state) => state.token);
+  const dispatch = useDispatch();
+
+  const getUserInfo = () => {
+    dispatch(getUserInfoMiddlewareAction(userToken.access));
+  };
 
   return (
     <header
@@ -17,7 +25,7 @@ export const Header = ({ setIsShowModal }) => {
     >
       <div className="container">
         <div className="header__wrapper">
-          <Link to="/" className="header__log">
+          <Link to="/" className="header__logo">
             <img src={icon} alt="" />
           </Link>
           <nav className="header__nav">
@@ -43,11 +51,17 @@ export const Header = ({ setIsShowModal }) => {
                 </Link>
               </li>
               <li className="header__item">
-                <Button
-                  title="Contact Us"
-                  isPinkBackgroud={true}
-                  setIsShowModal={setIsShowModal}
-                />
+                {userToken ? (
+                  <div className="header__logo" onClick={getUserInfo}>
+                    <img src={person} alt="" />
+                  </div>
+                ) : (
+                  <Button
+                    title="Sign In"
+                    isPinkBackgroud={true}
+                    setIsShowModal={setIsShowModal}
+                  />
+                )}
               </li>
               <li className="header__item">
                 <ModeButton />
