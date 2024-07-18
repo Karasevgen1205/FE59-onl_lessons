@@ -1,6 +1,6 @@
 import React, { useState, useEffect, createContext } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Header } from "../header";
 import { MainPage } from "../main-page";
 import { ToDos } from "../todos";
@@ -11,32 +11,25 @@ import { NotFound } from "../not-found";
 import { Game } from "../game/main";
 import { ActivationEmailPage } from "../activation-email";
 import { MyContext } from "../hooks/context.hook";
+import { UserInfoPage } from "../user-info";
+import { Authorization } from "../authorization-page";
+import { fetchUserInfo } from "../../api/user";
+import { addUserDataAction } from "../../store/actions";
 import "./styles.scss";
 
 export const App = () => {
   const [isShowModal, setIsShowModal] = useState(false);
   const isBlackTheme = useSelector((state) => state.isBlackTheme);
-
-  // useEffect(() => {
-  //   console.log("Запрос на сервер");
-  // });
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    // ..что-то что должно выполняться
-
-    return () => {
-      //..что-то что должно выполняться когда компонент размонтируется
-      // то же что и   componentWillUnmount;
-    };
-  }, []); // то же что и componentDidMount;
-
-  // useEffect(() => {
-  //   // ..что-то что должно выполняться только когда меняется page
-  // }, [page]); // то же что и componentDidUpdate с обновлением page;
-
-  useEffect(() => {
-    // ..что-то что должно выполняться
-  }); // то же что и componentDidUpdate;
+    // fetchUserInfo().then((response) => {
+    //   localStorage.setItem("isAuth", !!response.id);
+    //   if (response?.id) {
+    //     dispatch(addUserDataAction(response));
+    //   }
+    // });
+  }, []);
 
   return (
     <BrowserRouter>
@@ -57,6 +50,8 @@ export const App = () => {
               element={<ActivationEmailPage />}
             />
             <Route path="game" element={<Game />} />
+            <Route path="login" element={<Authorization />} />
+            <Route path="user-info" element={<UserInfoPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

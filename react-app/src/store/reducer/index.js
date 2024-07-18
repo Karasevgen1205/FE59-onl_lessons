@@ -118,8 +118,8 @@ export const reducer = (state = initialState, action) => {
         },
       };
     case RECEIVED_USER_DATA:
-      const isError = !action.user.id;
-
+      const isError = !action.user?.id;
+      console.log(action.user);
       return {
         ...state,
         // posts: action.payload,

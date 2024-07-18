@@ -1,7 +1,6 @@
 import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { getUserInfoMiddlewareAction } from "../../store/actions";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../button";
 import { ModeButton } from "../mode-button";
 import icon from "./images/icon.svg";
@@ -9,13 +8,15 @@ import person from "./images/person.svg";
 import "./styles.scss";
 
 export const Header = ({ setIsShowModal }) => {
-  const header = useRef(null); // не null, а {current: null};
+  const header = useRef(null);
   const isBlackTheme = useSelector((state) => state.isBlackTheme);
-  const userToken = useSelector((state) => state.token);
-  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user.content);
+  const isAuth = localStorage.getItem("isAuth");
+
+  const navigate = useNavigate();
 
   const getUserInfo = () => {
-    dispatch(getUserInfoMiddlewareAction(userToken.access));
+    navigate("user-info");
   };
 
   return (
@@ -51,7 +52,7 @@ export const Header = ({ setIsShowModal }) => {
                 </Link>
               </li>
               <li className="header__item">
-                {userToken ? (
+                {isAuth ? (
                   <div className="header__logo" onClick={getUserInfo}>
                     <img src={person} alt="" />
                   </div>

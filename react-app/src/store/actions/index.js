@@ -1,3 +1,5 @@
+import { fetchToken, fetchActivation } from "../../api/auth";
+import { fetchUserInfo } from "../../api/user";
 import { postsData } from "../../components/blog/mock-data";
 
 export const INCREMENT = "INCREMENT";
@@ -97,59 +99,26 @@ export const signUpMiddlewareAction = ({ name, email, pass, group }) => {
 
 export const activationEmailMiddlewareAction = (uid, token) => {
   return (dispatch) => {
-    // dispatch(POST_USER_DATA_ACTION);
-
-    const URL = "https://studapi.teachmeskills.by/auth/users/activation/";
-    const data = { uid, token };
-
-    fetch(URL, {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    })
-      .then((response) => response.json())
-      .then((json) => {
-        console.log(json);
-        // dispatch(addUserDataAction(json))
-      });
+    fetchActivation(uid, token);
   };
 };
 
-export const authorizationMiddlewareAction = (values) => {
+export const authorizationMiddlewareAction = (values, navigate) => {
   return (dispatch) => {
-    const URL = "https://studapi.teachmeskills.by/auth/jwt/create/";
-
-    fetch(URL, {
-      method: "POST",
-      body: JSON.stringify(values),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    })
-      .then((response) => response.json())
-      .then((json) => {
-        console.log(json);
-        dispatch(addTokenAction(json));
+    fetchToken(values).then(() => {
+      fetchUserInfo(navigate).then((response) => {
+        console.log(response);
+        dispatch(addUserDataAction(response));
       });
+    });
   };
 };
 
-export const getUserInfoMiddlewareAction = (token) => {
+export const getUserInfoMiddlewareAction = (navigate) => {
   return (dispatch) => {
-    const URL = "https://studapi.teachmeskills.by/auth/users/me/";
-
-    fetch(URL, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((response) => response.json())
-      .then((json) => {
-        console.log(json);
-        dispatch(addUserDataAction(json));
-      });
+    fetchUserInfo(navigate).then((response) => {
+      console.log(response);
+      dispatch(addUserDataAction(response));
+    });
   };
 };
