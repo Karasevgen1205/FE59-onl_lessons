@@ -38,13 +38,13 @@ export const getPostsMiddlewareAction = () => {
   return (dispatch) => {
     dispatch(REQUEST_POSTS_ACTION);
 
-    const URL = "https://studapi.teachmeskills.by/blog/posts/?limit=11";
+    const URL = "https://studapi.teachmeskills.by/blog/posts/?limit=12";
 
     fetch(URL)
       .then((response) => response.json())
       .then(({ results }) => {
-        dispatch(addPostsAction(postsData));
-        // dispatch(addPostsAction(results));
+        // dispatch(addPostsAction(postsData));
+        dispatch(addPostsAction(results));
       })
       .catch((e) => {
         console.log(e);

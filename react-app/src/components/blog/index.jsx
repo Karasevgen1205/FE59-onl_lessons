@@ -1,130 +1,127 @@
 import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { fetchPosts } from "../../api/posts.js";
 import {
   addPostsAction,
   changeTabAction,
   REQUEST_POSTS_ACTION,
   getPostsMiddlewareAction,
 } from "../../store/actions";
-import { getPost, getPosts, getTab } from "../../store/selectors/index.js";
-import { postsData } from "./mock-data.js";
+import { getPost, getTab } from "../../store/selectors/index.js";
 import { PostPreview } from "../post-preview";
-import { Post } from "../post/index.jsx";
+import { Post } from "../post";
+import { BlogNavBar } from "../blog-nav-bar";
+import { NoSearchResult } from "../no-search-result";
+import { Pagination } from "../pagination";
 import { Spinner } from "../spinner";
 import "./styles.scss";
 
+export const LIMIT = 12;
+
 export const BlogPage = () => {
-  const { category } = useParams(); //{category: "popular"}
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const [searchValue, setSearchValue] = useState("");
-  const post = useSelector(getPost);
-  const posts = useSelector(getPosts);
+  // const { category } = useParams(); //{category: "popular"}
+  // const navigate = useNavigate();
+  // const dispatch = useDispatch();
   const filterValue = useSelector(getTab);
+  const [posts, setPost] = useState({
+    content: [],
+    loading: false,
+    count: 0,
+  });
+  const [order, setOrder] = useState("title");
+  const [page, setPage] = useState(1);
+  // const [orderBy, setOrderBy] = useState("asc"); // desc
+  // const post = useSelector(getPost);
+  // const posts = useSelector(getPosts);
+  // const filterValue = useSelector(getTab);
 
   useEffect(() => {
-    dispatch(changeTabAction(category));
-    dispatch(getPostsMiddlewareAction());
+    // dispatch(changeTabAction(category));
+    getPosts();
   }, []);
 
-  const isAll = filterValue === "all";
-  const isFavourites = filterValue === "favourites";
-  const isPopular = filterValue === "popular";
+  const getPosts = (value) => {
+    setPost({ content: [], loading: true });
 
-  const handleClickAll = (category) => {
-    return () => {
-      dispatch(changeTabAction(category));
-      navigate(`/blog/${category}`);
-    };
+    fetchPosts(value, order, LIMIT, page).then(({ results, count }) =>
+      setPost({ content: [results], loading: false, count })
+    );
+  };
+  console.log(posts);
+  const handleSearch = (value) => {
+    getPosts(value);
+    // fetchPosts("query").then();
   };
 
-  const handleSearch = (e) => {
-    setSearchValue(e.target.value.toLowerCase());
+  const handleLoadMore = () => {
+    setPost((prevState) => ({ ...prevState, loading: true }));
+
+    fetchPosts("", order, LIMIT, page + 1).then(({ results, count }) =>
+      setPost((prevState) => ({
+        content: [...prevState.content, results],
+        loading: false,
+        count,
+      }))
+    );
+    setPage((prevState) => prevState + 1);
   };
 
-  if (posts.loading || !posts.loaded) {
-    return <Spinner />;
-  }
+  const handleChangePage = (newPage) => {
+    fetchPosts("", order, LIMIT, newPage).then(({ results, count }) =>
+      setPost({
+        content: [results],
+        loading: false,
+        count,
+      })
+    );
+
+    setPage(newPage);
+  };
 
   return (
     <section className="posts">
       <div className="container">
         <h1 className="posts__title">Blog</h1>
-        <div className="posts__nav">
-          <div className="nav__actions">
-            <button
-              className={`posts__nav-btn ${
-                isAll ? "posts__nav-btn_active" : ""
+        <BlogNavBar handleSearch={handleSearch} />
+        {posts.content.map((item, index) => {
+          return (
+            <div
+              className={`posts__wrapper ${
+                filterValue === "favourites" || filterValue === "popular"
+                  ? "posts__wrapper_flex"
+                  : ""
               }`}
-              // onClick={() => {
-              //   setFilterValue("all");
-              //   navigate("/blog/all");
-              // }}
-              onClick={handleClickAll("all")}
+              key={index}
             >
-              All
-            </button>
-            <button
-              className={`posts__nav-btn ${
-                isFavourites ? "posts__nav-btn_active" : ""
-              }`}
-              onClick={handleClickAll("favourites")}
-            >
-              Favourites
-            </button>
-            <button
-              className={`posts__nav-btn ${
-                isPopular ? "posts__nav-btn_active" : ""
-              }`}
-              onClick={handleClickAll("popular")}
-            >
-              Popular
-            </button>
+              {item.map((post, index) => {
+                return (
+                  <Post
+                    post={post}
+                    index={index}
+                    key={post.id}
+                    size={index <= 5 ? "medium" : "small"}
+                  />
+                );
+              })}
+            </div>
+          );
+        })}
+        {!posts.content.length && !posts.loading && <NoSearchResult />}
+        <Pagination
+          count={posts.count}
+          limit={LIMIT}
+          page={page}
+          handleChangePage={handleChangePage}
+        />
+        {page * (LIMIT + 1) <= posts.count && (
+          <div className="posts__load-more" onClick={handleLoadMore}>
+            <button className="posts__load-more-btn">Load more</button>
           </div>
-          <div className="nav__search">
-            <input type="text" onInput={handleSearch} />
-          </div>
-        </div>
-        <div
-          className={`posts__wrapper ${
-            isFavourites || isPopular ? "posts__wrapper_flex" : ""
-          }`}
-        >
-          {posts.content
-            .reduce((result, post) => {
-              // ... оствим на ДЗ
-              // ...ваш код
-              return [...result, post];
-            }, [])
-            .filter((post) => {
-              if (isAll) {
-                return post;
-              } else if (isFavourites) {
-                return post.favourites;
-              } else {
-                return post.popular;
-              }
-            })
-            .filter((post) => {
-              return post.title.toLowerCase().includes(searchValue);
-            })
-            .map((item, index) => {
-              let size = "large";
-
-              if (isAll) {
-                if (index >= 1 && index <= 4) {
-                  size = "medium";
-                } else if (index > 4) {
-                  size = "small";
-                }
-              }
-
-              return <Post post={item} index={index} key={index} size={size} />;
-            })}
-        </div>
+        )}
+        {posts.loading && <Spinner />}
       </div>
-      {post && <PostPreview post={post} />}
+      {/* {post && <PostPreview post={post} />} */}
     </section>
   );
 };

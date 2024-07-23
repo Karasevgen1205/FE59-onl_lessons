@@ -40,7 +40,7 @@ export const Post = ({ post, index, size }) => {
           <Link to={`${post.id}`} className="post__title">
             {post.title}
           </Link>
-          <p className="post__text">{post.text}</p>
+          <p className="post__text">{post.description}</p>
         </div>
         <Link to={`${post.id}`} className="post__img">
           <img src={post.image} alt="" />

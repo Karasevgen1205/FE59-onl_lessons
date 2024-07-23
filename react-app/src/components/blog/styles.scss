@@ -10,13 +10,14 @@
     display: grid;
     grid-gap: 10px;
     grid-template-areas:
-      "post-0 post-0 post-5"
-      "post-0 post-0 post-6"
-      "post-1 post-2 post-7"
-      "post-1 post-2 post-8"
-      "post-3 post-4 post-9"
-      "post-3 post-4 post-10";
+      "post-0 post-1 post-2"
+      "post-0 post-1 post-3"
+      "post-4 post-5 post-6"
+      "post-4 post-5 post-7"
+      "post-8 post-9 post-10"
+      "post-8 post-9 post-11";
     grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 10px;
 
     &_flex {
       display: flex;
@@ -47,6 +48,26 @@
 
       &:last-child {
         margin-right: 0;
+      }
+    }
+  }
+
+  &__load-more {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 30px 0;
+
+    &-btn {
+      padding: 25px;
+      border: none;
+      border-radius: 15px;
+      font-size: 30px;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+
+      &:hover {
+        background-color: antiquewhite;
       }
     }
   }
