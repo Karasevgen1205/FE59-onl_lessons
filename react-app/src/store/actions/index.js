@@ -1,6 +1,6 @@
 import { fetchToken, fetchActivation } from "../../api/auth";
 import { fetchUserInfo } from "../../api/user";
-import { postsData } from "../../components/blog/mock-data";
+import { postsData } from "../../pages/blog/mock-data";
 
 export const INCREMENT = "INCREMENT";
 export const DECREMENT = "DECREMENT";

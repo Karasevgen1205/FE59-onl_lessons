@@ -1,9 +1,6 @@
-import { useParams, Link, useNavigate, useLocation } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { INCREMENT_ACTION, DECREMENT_ACTION } from "../../store/actions";
-import { Banner } from "../banner";
-
-// это обертка над классовмы компонентом что бы ему передать хуки из реакт роутер дома
+import { Banner } from "../../components/banner";
 
 export const MainPage = (props) => {
   const { postId } = useParams();
@@ -17,20 +14,10 @@ export const MainPage = (props) => {
     <>
       <div className="" style={{ margin: "50px" }}>
         <div className="">Результат: {count}</div>
-        <button
-          onClick={() => {
-            dispatch({ type: "INCREMENT" });
-            console.log("увеличить");
-          }}
-        >
+        <button onClick={() => dispatch({ type: "INCREMENT" })}>
           Увеличить
         </button>
-        <button
-          onClick={() => {
-            dispatch({ type: "DECREMENT" });
-            console.log("уменьшить");
-          }}
-        >
+        <button onClick={() => dispatch({ type: "DECREMENT" })}>
           Уменьшить
         </button>
       </div>

@@ -52,6 +52,11 @@ export const Header = ({ setIsShowModal }) => {
                 </Link>
               </li>
               <li className="header__item">
+                <Link to="create-post" className="header__link">
+                  Create post
+                </Link>
+              </li>
+              <li className="header__item">
                 {isAuth ? (
                   <div className="header__logo" onClick={getUserInfo}>
                     <img src={person} alt="" />

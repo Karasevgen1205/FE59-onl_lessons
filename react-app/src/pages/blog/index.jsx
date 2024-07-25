@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useParams, Link, useNavigate, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPosts } from "../../api/posts.js";
 import {
@@ -9,12 +8,12 @@ import {
   getPostsMiddlewareAction,
 } from "../../store/actions";
 import { getPost, getTab } from "../../store/selectors/index.js";
-import { PostPreview } from "../post-preview";
-import { Post } from "../post";
-import { BlogNavBar } from "../blog-nav-bar";
-import { NoSearchResult } from "../no-search-result";
-import { Pagination } from "../pagination";
-import { Spinner } from "../spinner";
+import { PostPreview } from "../../components/post-preview";
+import { Post } from "../../components/post";
+import { BlogNavBar } from "../../components/blog-nav-bar";
+import { NoSearchResult } from "../../components/no-search-result";
+import { Pagination } from "../../components/pagination";
+import { Spinner } from "../../components/spinner";
 import "./styles.scss";
 
 export const LIMIT = 12;

@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 import { useParams, Link, useNavigate, useLocation } from "react-router-dom";
 import { postsData } from "../blog/mock-data";
-import { Spinner } from "../spinner";
+import { Spinner } from "../../components/spinner";
 import "./styles.scss";
 
 export const PostDetaild = () => {

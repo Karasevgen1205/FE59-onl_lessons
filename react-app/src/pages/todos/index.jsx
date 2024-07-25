@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useId, useMemo, useCallback } from "react";
 import { useSelector } from "react-redux";
-import { ToDo } from "../todo";
+import { ToDo } from "../../components/todo";
 import { todosData } from "./mock-data.js";
-import { Spinner } from "../spinner";
+import { Spinner } from "../../components/spinner";
 import "./styles.scss";
 
 export const ToDos = () => {
