@@ -18,7 +18,7 @@ const validationSchema = {
   text: { type: "string", min: 1 },
 };
 
-const checkValidationDate = (data) => {
+const checkValidationData = (data) => {
   const validator = new Validator();
   const check = validator.compile(validationSchema);
 
@@ -38,7 +38,7 @@ export const CreatePost = () => {
     event.preventDefault();
     const { title, lesson_num, description, text } = event.currentTarget;
 
-    const result = checkValidationDate({
+    const result = checkValidationData({
       title: title.value,
       lesson_num: lesson_num.value,
       description: description.value,
