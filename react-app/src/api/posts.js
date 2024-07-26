@@ -1,4 +1,4 @@
-import { refreshToken } from "./user";
+import { refreshToken } from "./auth";
 
 export const fetchPosts = (searchValue, order, limit, page) => {
   const offset = (page - 1) * limit;
