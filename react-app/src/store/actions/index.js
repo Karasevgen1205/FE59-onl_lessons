@@ -1,4 +1,5 @@
 import { fetchToken, fetchActivation } from "../../api/auth";
+import { fetchPosts } from "../../api/posts";
 import { fetchUserInfo } from "../../api/user";
 import { postsData } from "../../pages/blog/mock-data";
 
@@ -15,6 +16,7 @@ export const REQUEST_POSTS = "REQUEST_POSTS";
 export const POST_USER_DATA = "POST_USER_DATA";
 export const RECEIVED_USER_DATA = "RECEIVED_USER_DATA";
 export const RECEIVED_TOKEN = "RECEIVED_TOKEN";
+// export const CHANGE_PAGE = "CHANGE_PAGE";
 
 export const INCREMENT_ACTION = { type: INCREMENT };
 export const DECREMENT_ACTION = { type: DECREMENT };
@@ -24,9 +26,9 @@ export const REQUEST_POSTS_ACTION = { type: REQUEST_POSTS };
 export const POST_USER_DATA_ACTION = { type: POST_USER_DATA };
 
 export const addPostAction = (post) => ({ type: ADD_POST, payload: post });
-export const addPostsAction = (posts) => ({
+export const addPostsAction = (response) => ({
   type: RECEIVED_POSTS,
-  payload: posts,
+  payload: response,
 });
 export const changeLikeAction = (id) => ({ type: CHANGE_LIKE, id });
 export const changeDislikeAction = (id) => ({ type: CHANGE_DISLIKE, id });
@@ -107,7 +109,7 @@ export const authorizationMiddlewareAction = (values, navigate) => {
   return (dispatch) => {
     fetchToken(values).then(() => {
       fetchUserInfo(navigate).then((response) => {
-        console.log(response);
+        // console.log(response);
         dispatch(addUserDataAction(response));
       });
     });
@@ -117,8 +119,22 @@ export const authorizationMiddlewareAction = (values, navigate) => {
 export const getUserInfoMiddlewareAction = (navigate) => {
   return (dispatch) => {
     fetchUserInfo(navigate).then((response) => {
-      console.log(response);
+      // console.log(response);
       dispatch(addUserDataAction(response));
+    });
+  };
+};
+
+export const getPostsAction = ({ searchValue, order, limit, page }) => {
+  return (dispatch, getState) => {
+    dispatch(REQUEST_POSTS_ACTION);
+
+    fetchPosts(searchValue, order, limit, page).then((response) => {
+      // const state = getState();
+
+      // const newPost = [...state.posts.content, response.results];
+
+      dispatch(addPostsAction(response));
     });
   };
 };

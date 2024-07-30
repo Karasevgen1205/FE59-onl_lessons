@@ -6,6 +6,7 @@ import {
   changeTabAction,
   REQUEST_POSTS_ACTION,
   getPostsMiddlewareAction,
+  getPostsAction,
 } from "../../store/actions";
 import { getPost, getTab } from "../../store/selectors/index.js";
 import { PostPreview } from "../../components/post-preview";
@@ -32,28 +33,37 @@ export const BlogPage = () => {
   const [page, setPage] = useState(1);
   // const [orderBy, setOrderBy] = useState("asc"); // desc
   // const post = useSelector(getPost);
-  // const posts = useSelector(getPosts);
+  // const storePosts = useSelector((state) => {
+  // console.log(state);
+  // return state.posts;
+  // });
+
+  // console.log(storePosts);
   // const filterValue = useSelector(getTab);
 
   useEffect(() => {
+    // dispatch(getPostsAction({ order, limit: LIMIT, page }));
     // dispatch(changeTabAction(category));
     getPosts();
   }, []);
 
-  const getPosts = (value) => {
+  const getPosts = (value, isResetPage) => {
     setPost({ content: [], loading: true });
 
-    fetchPosts(value, order, LIMIT, page).then(({ results, count }) =>
-      setPost({ content: [results], loading: false, count })
+    fetchPosts(value, order, LIMIT, isResetPage ? 1 : page).then(
+      ({ results, count }) =>
+        setPost({ content: [results], loading: false, count })
     );
   };
-  console.log(posts);
+
   const handleSearch = (value) => {
-    getPosts(value);
+    setPage(1);
+    getPosts(value, true);
     // fetchPosts("query").then();
   };
 
   const handleLoadMore = () => {
+    // dispatch(getPostsAction({ order, limit: LIMIT, page: page + 1 }));
     setPost((prevState) => ({ ...prevState, loading: true }));
 
     fetchPosts("", order, LIMIT, page + 1).then(({ results, count }) =>

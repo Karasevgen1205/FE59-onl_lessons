@@ -1,11 +1,20 @@
 import { refreshToken } from "./auth";
 
+export const getQueryParams = (searchValue, order, limit, offset) => {
+  return `?limit=${limit}&offset=${offset}${
+    searchValue ? `&search=${searchValue}` : ""
+  }&ordering=${order}`;
+};
+
 export const fetchPosts = (searchValue, order, limit, page) => {
   const offset = (page - 1) * limit;
 
-  const URL = `https://studapi.teachmeskills.by/blog/posts/?limit=${limit}&offset=${offset}${
-    searchValue ? `&search=${searchValue}` : ""
-  }&ordering=${order}`;
+  const URL = `https://studapi.teachmeskills.by/blog/posts/${getQueryParams(
+    searchValue,
+    order,
+    limit,
+    offset
+  )}`;
 
   return fetch(URL)
     .then((response) => response.json())

@@ -20,6 +20,7 @@ const initialState = {
   post: null,
   posts: {
     content: [],
+    count: 0,
     loading: false,
     loaded: false,
     error: null,
@@ -81,7 +82,8 @@ export const reducer = (state = initialState, action) => {
         // posts: action.payload,
         posts: {
           ...state.posts,
-          content: action.payload,
+          content: [...state.posts.content, action.payload.results],
+          count: action.payload.count,
           loading: false,
           loaded: true,
         },
