@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { changeTabAction } from "../../store/actions/index.js";
-import { getTab } from "../../store/selectors/index.js";
+import { changeTabAction } from "../../store/actions";
+import { getTab } from "../../store/selectors/index.ts";
 import { useState } from "react";
 
 export const BlogNavBar = ({ handleSearch }) => {

@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { FC, useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import {getBlackTheme} from '../../store/selectors';
 import { Header } from "../header";
 import { MainPage } from "../../pages/main-page";
 import { ToDos } from "../../pages/todos";
@@ -18,9 +19,9 @@ import { fetchUserInfo } from "../../api/user";
 import { addUserDataAction } from "../../store/actions";
 import "./styles.scss";
 
-export const App = () => {
-  const [isShowModal, setIsShowModal] = useState(false);
-  const isBlackTheme = useSelector((state) => state.isBlackTheme);
+export const App: FC = () => {
+  const [isShowModal, setIsShowModal] = useState<boolean>(false);
+  const isBlackTheme = useSelector(getBlackTheme);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -32,15 +33,19 @@ export const App = () => {
     // });
   }, []);
 
+  const handleChangeShowModal = (value: boolean) => {
+    setIsShowModal(value);
+  }
+
   return (
     <BrowserRouter>
       <MyContext.Provider value={{ isBlackTheme }}>
-        <Header setIsShowModal={setIsShowModal} />
+        <Header setIsShowModal={handleChangeShowModal} />
         <main className={isBlackTheme ? "black-theme" : ""}>
           <Routes>
             <Route
               path="/"
-              element={<MainPage setIsShowModal={setIsShowModal} />}
+              element={<MainPage setIsShowModal={handleChangeShowModal} />}
             />
             <Route path="/blog/:category" element={<BlogPage />} />
             <Route path="/blog/:category/:postId" element={<PostDetaild />} />
@@ -57,7 +62,7 @@ export const App = () => {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
-        {isShowModal && <Modal setIsShowModal={setIsShowModal} />}
+        {isShowModal && <Modal setIsShowModal={handleChangeShowModal} />}
       </MyContext.Provider>
     </BrowserRouter>
   );

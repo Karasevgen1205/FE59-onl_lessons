@@ -8,7 +8,7 @@ import {
   getPostsMiddlewareAction,
   getPostsAction,
 } from "../../store/actions";
-import { getPost, getTab } from "../../store/selectors/index.js";
+import { getPost, getTab } from "../../store/selectors/index.ts";
 import { PostPreview } from "../../components/post-preview";
 import { Post } from "../../components/post";
 import { BlogNavBar } from "../../components/blog-nav-bar";

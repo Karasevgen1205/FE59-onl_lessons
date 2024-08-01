@@ -1,4 +1,5 @@
-import React, { createRef } from "react";
+import React, { createRef, RefObject } from "react";
+import {NavigateFunction, Location} from 'react-router-dom';
 
 import { Button } from "../button";
 import iamge from "./images/127.jpeg";
@@ -9,17 +10,31 @@ import "./styles.scss";
 //   // use strict this === undefined
 // }
 
-export class Banner extends React.Component {
-  interval;
+interface IProps {
+  location: Location,
+  navigate: NavigateFunction,
+  postId?: string;
+  isBlackTheme: boolean;
+  setIsShowModal: (value: boolean) => void;
+}
+
+interface IState {
+  isShowImage: boolean;
+  shouldFetchData: boolean;
+}
+
+export class Banner extends React.Component<IProps, IState> {
+  interval: number | undefined;
   callback = () => {
     // console.log("body click");
   };
+  bannerRef: RefObject<HTMLElement>
 
-  constructor(props) {
+  constructor(props: IProps) {
     // console.log("constructor - здесь инициилизируется класс");
     super(props); // location, navigate, postId
     this.state = { isShowImage: true, shouldFetchData: false };
-    this.bannerRef = createRef(null);
+    this.bannerRef = createRef();
     // this.handleClick = this.handleClick.bind(this);
   }
 
@@ -50,7 +65,7 @@ export class Banner extends React.Component {
   //   // return true || false;
   // }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps: IProps, prevState: IState) {
     if (prevState.isShowImage !== this.state.isShowImage) {
       //... выполнить что-то только из-за обновления isShowImage
     }
@@ -105,6 +120,7 @@ export class Banner extends React.Component {
               <p className="banner__text">Cool!</p>
               <Button
                 title="Get it now"
+                isPinkBackgroud={false}
                 setIsShowModal={this.props.setIsShowModal}
               />
             </div>

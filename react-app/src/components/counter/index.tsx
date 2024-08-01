@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { FC, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-export const Counter = () => {
+export const Counter: FC = () => {
   //   const dispatch = useDispatch();
   //   const count = useSelector((state) => state.count);
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState<number>(0);
 
   const increment = () => {
     setCount((prevState) => prevState + 1);

@@ -1,4 +1,4 @@
-import React, { useState, memo } from "react";
+import React, { FC, useState, memo } from "react";
 import "./styles.scss";
 
 // В React мы так НЕ ДЕЛАЕМ!!!!!!!
@@ -10,9 +10,15 @@ import "./styles.scss";
 //   console.log("input");
 // });
 
-const View = ({ title, isPinkBackgroud, setIsShowModal }) => {
+interface IButton {
+  title: string;
+  isPinkBackgroud: boolean;
+  setIsShowModal: (value: boolean) => void;
+}
+
+const View: FC<IButton> = ({ title, isPinkBackgroud, setIsShowModal }) => {
   // export const Button = ({ title, isPinkBackgroud, setIsShowModal }) => {
-  const [isActiveBtn, setIsActiveBtn] = useState(false);
+  const [isActiveBtn, setIsActiveBtn] = useState<boolean>(false);
   // console.log("Button");
   let className = "button";
 

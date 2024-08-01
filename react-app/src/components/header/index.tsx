@@ -1,4 +1,5 @@
-import { useRef } from "react";
+import React, { FC, useRef } from "react";
+import {getBlackTheme, getUserInfo} from '../../store/selectors';
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../button";
@@ -7,15 +8,19 @@ import icon from "./images/icon.svg";
 import person from "./images/person.svg";
 import "./styles.scss";
 
-export const Header = ({ setIsShowModal }) => {
+interface IHeader {
+  setIsShowModal: (value: boolean) => void;
+}
+
+export const Header: FC<IHeader> = ({ setIsShowModal }) => {
   const header = useRef(null);
-  const isBlackTheme = useSelector((state) => state.isBlackTheme);
-  const user = useSelector((state) => state.user.content);
+  const isBlackTheme = useSelector(getBlackTheme);
+  const user = useSelector(getUserInfo);
   const isAuth = localStorage.getItem("isAuth");
 
   const navigate = useNavigate();
 
-  const getUserInfo = () => {
+  const goUserPage = () => {
     navigate("user-info");
   };
 
@@ -58,7 +63,7 @@ export const Header = ({ setIsShowModal }) => {
               </li>
               <li className="header__item">
                 {isAuth ? (
-                  <div className="header__logo" onClick={getUserInfo}>
+                  <div className="header__logo" onClick={goUserPage}>
                     <img src={person} alt="" />
                   </div>
                 ) : (

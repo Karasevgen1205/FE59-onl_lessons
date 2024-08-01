@@ -1,7 +1,12 @@
+import {NavigateFunction} from 'react-router-dom';
 import { fetchToken, fetchActivation } from "../../api/auth";
 import { fetchPosts } from "../../api/posts";
 import { fetchUserInfo } from "../../api/user";
 import { postsData } from "../../pages/blog/mock-data";
+import {IRegistrationValues} from '../../components/registration';
+import {AppDispatch, AppStore} from '..';
+import {IPostQuery} from '../../typings/posts';
+import {IAuth} from '../../typings/auth';
 
 export const INCREMENT = "INCREMENT";
 export const DECREMENT = "DECREMENT";
@@ -25,19 +30,19 @@ export const REMOVE_POST_ACTION = { type: REMOVE_POST };
 export const REQUEST_POSTS_ACTION = { type: REQUEST_POSTS };
 export const POST_USER_DATA_ACTION = { type: POST_USER_DATA };
 
-export const addPostAction = (post) => ({ type: ADD_POST, payload: post });
-export const addPostsAction = (response) => ({
+export const addPostAction = (post: unknown) => ({ type: ADD_POST, payload: post });
+export const addPostsAction = (response: unknown) => ({
   type: RECEIVED_POSTS,
   payload: response,
 });
-export const changeLikeAction = (id) => ({ type: CHANGE_LIKE, id });
-export const changeDislikeAction = (id) => ({ type: CHANGE_DISLIKE, id });
-export const changeTabAction = (tab) => ({ type: CHANGE_TAB, tab });
-export const addUserDataAction = (user) => ({ type: RECEIVED_USER_DATA, user });
-export const addTokenAction = (payload) => ({ type: RECEIVED_TOKEN, payload });
+export const changeLikeAction = (id: number) => ({ type: CHANGE_LIKE, id });
+export const changeDislikeAction = (id: number) => ({ type: CHANGE_DISLIKE, id });
+export const changeTabAction = (tab: unknown) => ({ type: CHANGE_TAB, tab });
+export const addUserDataAction = (user: unknown) => ({ type: RECEIVED_USER_DATA, user });
+export const addTokenAction = (payload: unknown) => ({ type: RECEIVED_TOKEN, payload });
 
 export const getPostsMiddlewareAction = () => {
-  return (dispatch) => {
+  return (dispatch: AppDispatch) => {
     dispatch(REQUEST_POSTS_ACTION);
 
     const URL = "https://studapi.teachmeskills.by/blog/posts/?limit=12";
@@ -55,8 +60,8 @@ export const getPostsMiddlewareAction = () => {
   };
 };
 
-export const getPostMiddlewareAction = (id) => {
-  return (dispatch) => {
+export const getPostMiddlewareAction = (id: number) => {
+  return (dispatch: AppDispatch) => {
     dispatch(REQUEST_POSTS_ACTION);
 
     const URL = `https://studapi.teachmeskills.by/blog/posts/${id}`;
@@ -74,8 +79,8 @@ export const getPostMiddlewareAction = (id) => {
   };
 };
 
-export const signUpMiddlewareAction = ({ name, email, pass, group }) => {
-  return (dispatch) => {
+export const signUpMiddlewareAction = ({ name, email, pass, group }: IRegistrationValues) => {
+  return (dispatch: AppDispatch) => {
     dispatch(POST_USER_DATA_ACTION);
 
     const URL = "https://studapi.teachmeskills.by/auth/users/";
@@ -99,14 +104,14 @@ export const signUpMiddlewareAction = ({ name, email, pass, group }) => {
   };
 };
 
-export const activationEmailMiddlewareAction = (uid, token) => {
-  return (dispatch) => {
+export const activationEmailMiddlewareAction = (uid: string, token: string) => {
+  return (dispatch: AppDispatch) => {
     fetchActivation(uid, token);
   };
 };
 
-export const authorizationMiddlewareAction = (values, navigate) => {
-  return (dispatch) => {
+export const authorizationMiddlewareAction = (values: IAuth, navigate: NavigateFunction) => {
+  return (dispatch: AppDispatch) => {
     fetchToken(values).then(() => {
       fetchUserInfo(navigate).then((response) => {
         // console.log(response);
@@ -116,8 +121,8 @@ export const authorizationMiddlewareAction = (values, navigate) => {
   };
 };
 
-export const getUserInfoMiddlewareAction = (navigate) => {
-  return (dispatch) => {
+export const getUserInfoMiddlewareAction = (navigate: NavigateFunction) => {
+  return (dispatch: AppDispatch) => {
     fetchUserInfo(navigate).then((response) => {
       // console.log(response);
       dispatch(addUserDataAction(response));
@@ -125,8 +130,8 @@ export const getUserInfoMiddlewareAction = (navigate) => {
   };
 };
 
-export const getPostsAction = ({ searchValue, order, limit, page }) => {
-  return (dispatch, getState) => {
+export const getPostsAction = ({ searchValue, order, limit, page }: IPostQuery) => {
+  return (dispatch: AppDispatch, getState: () => AppStore) => {
     dispatch(REQUEST_POSTS_ACTION);
 
     fetchPosts(searchValue, order, limit, page).then((response) => {

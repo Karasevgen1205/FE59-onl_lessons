@@ -6,7 +6,7 @@ import {
   changeLikeAction,
   changeDislikeAction,
 } from "../../store/actions";
-import { MyContext } from "../hooks/context.hook";
+import { MyContext } from "../hooks/context.hook.ts";
 import likeIcon from "./images/like_icon.svg";
 import dislikeIcon from "./images/dislike_icon.svg";
 import saveIcon from "./images/save_icon.png";
